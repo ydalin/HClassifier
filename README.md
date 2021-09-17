@@ -32,7 +32,8 @@ A new type of Neural Network, which will automatically classify as it goes.
 1. A regular neural network will train on a single concept, 'Dog', for example training to find different types of dogs.
 2. When a different concept comes along, 'Cat', the early layers of the Neural Network will not experience much activity - they classify if an animal is a pet or not, and 'Cat' has a lot of similarity to 'Dog' here. However, the later layers of neurons will have a large amount of activity, because they must completely retrain themselves.
 3. Therefore, when the amount of activity of neurons in a layer rises above a threshold, I propose that a new extension of the neural network be created. This extension will share the previous neurons, but have different neurons for the more active, later layers.
-Advantages:
+
+_Advantages_
 1. The ability to simultaneously classify concepts across categories. A Labrador is not only classified as a type of Dog - it is classified as being like a Cat.
 2. Training separate, related concepts at the same time. Even though I only have data about Cats, I am improving my Dog knowledge, since it shares neurons that are trained when Cat data is trained.
 3. No Dirty Data - Cat data thrown into a set of Dog data will not confuse the network. Instead, Cat data will be separated out automatically.
