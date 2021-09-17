@@ -13,6 +13,7 @@ Therefore, (albeit as of 2017, when the presentation in the video was made), tra
 A project for understanding language about music would not apply to a project to understand medical language, which would not apply to cooking.
 
 C) My belief is that incongruency is fundamental to humor. Identifying and creating incongruency is therefore essential to making funny jokes.
+
 D) One cannot consistently create incongruency without understanding how concepts are classified. 
 For example, there is nothing funny about the concept 'Dog' going along with 'Pet', since the concept of 'Dog' is closely related to the concept of 'Pet'. 
 There might be something funny with the concept of 'Dog' going along with 'Iceberg’ if some relationship could be found - because 'Dog' is not usually associated with 'Iceberg'. 
