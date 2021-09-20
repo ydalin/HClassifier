@@ -1,6 +1,6 @@
 # based on https://pytorch.org/tutorials/beginner/text_sentiment_ngrams_tutorial.html
 # https://stackoverflow.com/questions/64390904/how-can-i-extract-the-weight-and-bias-of-linear-layers-in-pytorch
-
+# https://pytorch.org/docs/stable/generated/torch.nn.ModuleList.html
 
 from torch import nn
 import time
@@ -11,6 +11,7 @@ from torchtext.vocab import build_vocab_from_iterator
 from torch.utils.data import DataLoader
 from torch.utils.data.dataset import random_split
 from torchtext.data.functional import to_map_style_dataset
+from matplotlib import pyplot as plt
 
 
 def collate_batch(batch):
@@ -105,7 +106,7 @@ model = TextClassificationModel(vocab_size, emsize, num_class).to(device)
 
 
 # Hyperparameters
-EPOCHS = 1 # epoch
+EPOCHS = 15 # epoch
 LR = 5  # learning rate
 BATCH_SIZE = 64 # batch size for training
 
@@ -127,6 +128,8 @@ valid_dataloader = DataLoader(split_valid_, batch_size=BATCH_SIZE,
 test_dataloader = DataLoader(test_dataset, batch_size=BATCH_SIZE,
                              shuffle=True, collate_fn=collate_batch)
 
+layer_first_weight = []
+layer_last_weight = []
 for epoch in range(1, EPOCHS + 1):
     epoch_start_time = time.time()
     train(train_dataloader)
@@ -135,6 +138,15 @@ for epoch in range(1, EPOCHS + 1):
       scheduler.step()
     else:
        total_accu = accu_val
+    state = model.state_dict()
+    weights = model.fc.weight
+    layer_first_weight.append(weights[0][0].detach().item())
+    layer_last_weight.append(weights[-1][0].detach().item())
+    # print(state['fc.weight'])
+    # for key in state.keys():
+    #     if key == ('embedding.weight'):
+    #         neuron_last[key].append(state[key][0][0])
+    #         neuron_first[key].append(state[key][0][0])
     print('-' * 59)
     print('| end of epoch {:3d} | time: {:5.2f}s | '
           'valid accuracy {:8.3f} '.format(epoch,
@@ -166,6 +178,19 @@ ex_text_str = "MEMPHIS, Tenn. – Four days ago, Jon Rahm was \
     front nine at TPC Southwind."
 
 model = model.to("cpu")
-print(model.state_dict())
+
+print(len(layer_first_weight), len(layer_last_weight))
+print('first layer:')
+print(layer_first_weight)
+print('***************************')
+print('last layer:')
+print(layer_last_weight)
+print('***************************\n')
+indices = []
+for i in range(len(layer_first_weight)):
+    indices.append(i)
+plt.plot(indices, layer_first_weight)
+plt.plot(indices, layer_last_weight)
+plt.show()
 
 print("This is a %s news" %ag_news_label[predict(ex_text_str, text_pipeline)])
