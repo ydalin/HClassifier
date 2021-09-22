@@ -36,18 +36,23 @@ class TextClassificationModel(nn.Module):
     def __init__(self, vocab_size, embed_dim, num_class):
         super(TextClassificationModel, self).__init__()
         self.embedding = nn.EmbeddingBag(vocab_size, embed_dim, sparse=True)
-        self.fc = nn.Linear(embed_dim, num_class)
+        self.fc1 = nn.conc2d(embed_dim, num_class)
+        self.fc2 = nn.con2d(embed_dim, num_class)
         self.init_weights()
 
     def init_weights(self):
         initrange = 0.5
         self.embedding.weight.data.uniform_(-initrange, initrange)
-        self.fc.weight.data.uniform_(-initrange, initrange)
-        self.fc.bias.data.zero_()
+        self.fc1.weight.data.uniform_(-initrange, initrange)
+        self.fc1.bias.data.zero_()
+        self.fc2.weight.data.uniform_(-initrange, initrange)
+        self.fc2.bias.data.zero_()
 
     def forward(self, text, offsets):
         embedded = self.embedding(text, offsets)
-        return self.fc(embedded)
+        fc2 = self.fc1(embedded)
+        self.fc2(fc2)
+        return self.fc2(fc2)
 
 def train(dataloader):
     model.train()
@@ -139,9 +144,13 @@ for epoch in range(1, EPOCHS + 1):
     else:
        total_accu = accu_val
     state = model.state_dict()
-    weights = model.fc.weight
-    layer_first_weight.append(weights[0][0].detach().item())
-    layer_last_weight.append(weights[-1][0].detach().item())
+    weights1 = model.fc1.weight
+    weights2 = model.fc2.weight
+    layer_first_weight.append(weights1[0][0].detach().item())
+    layer_last_weight.append(weights2[0][0].detach().item())
+    print('\nweights:')
+    print(layer_first_weight)
+    print(layer_last_weight)
     # print(state['fc.weight'])
     # for key in state.keys():
     #     if key == ('embedding.weight'):
