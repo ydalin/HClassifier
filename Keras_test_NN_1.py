@@ -87,8 +87,8 @@ for i in range(len(weights)):
     seventh_layer_avg_biases.append(np.average(epoch[14]))
 
 kernel = [-1, 1]
-first_layer_avg_biases = np.abs(np.convolve(first_layer_avg_biases, kernel))
-seventh_layer_avg_biases = np.abs(np.convolve(seventh_layer_avg_biases, kernel))
+# first_layer_avg_biases = np.abs(np.convolve(first_layer_avg_biases, kernel))
+# seventh_layer_avg_biases = np.abs(np.convolve(seventh_layer_avg_biases, kernel))
 first_layer_avg_weights = np.abs(np.convolve(first_layer_avg_weights, kernel))
 seventh_layer_avg_weights = np.abs(np.convolve(seventh_layer_avg_weights, kernel))
 print(first_layer_avg_biases)
@@ -106,16 +106,23 @@ epochs = range(1, len(loss) + 1)
 x = []
 for i in range(len(first_layer_avg_weights)-1):
     x.append(i+1)
+
 plt.subplot(2, 1, 1)
-plt.plot(x, first_layer_avg_biases[:-1], label='1st layer, delta biases')
-plt.plot(x, seventh_layer_avg_biases[:-1], label='7th layer, delta biases')
+plt.tight_layout(pad=5.0)
+plt.plot(x, first_layer_avg_biases, label='Layer 1')
+plt.plot(x, seventh_layer_avg_biases, label='Layer 7')
+plt.title('Biases')
+plt.xlabel('Training Batches')
+plt.ylabel('Value')
+plt.legend()
 
 plt.subplot(2, 1, 2)
-plt.plot(x, first_layer_avg_weights[:-1], label='1st layer, delta weight')
-plt.plot(x, seventh_layer_avg_weights[:-1], label='7th layer, delta weight')
-# plt.title('Change in Weights')
+plt.plot(x, first_layer_avg_weights[:-1], label='Layer 1')
+plt.plot(x, seventh_layer_avg_weights[:-1], label='Layer 7')
+plt.title('Weights')
 plt.xlabel('Training Batches')
 plt.ylabel('Change')
 plt.legend()
+
 plt.savefig('Change_in_weights.png')
 plt.show()
