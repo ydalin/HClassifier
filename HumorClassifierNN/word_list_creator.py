@@ -1,8 +1,6 @@
-from nltk.coconrpus import wordnet as wn
+from nltk.corpus import wordnet as wn
 import pandas as pd
-import pyjokes
-
-
+# import pyjokes
 
 
 def get_similarities():
@@ -32,10 +30,3 @@ def get_similarities():
             wup_similarity.iloc[i].iloc[j] = row_synset[0].wup_similarity(column_synset[0])
             lch_similarity.iloc[i].iloc[j] = row_synset[0].lch_similarity(column_synset[0])
     return path_similarity, wup_similarity, lch_similarity
-
-
-similarities = get_similarities()
-
-for similarity in similarities:
-    print(similarity)
-    print("\n")
