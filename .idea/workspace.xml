@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="efd1aa41-7f00-4710-b63b-3013469395b0" name="Changes" comment="Updating README.md (formatting)">
+    <list default="true" id="efd1aa41-7f00-4710-b63b-3013469395b0" name="Changes" comment="Word list creator: can parse jokes into nouns and verbs, then output similarity dataframes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HumorClassifierNN/word_list_creator.py" beforeDir="false" afterPath="$PROJECT_DIR$/HumorClassifierNN/word_list_creator.py" afterDir="false" />
     </list>
@@ -30,6 +30,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SET_USER_NAME_GLOBALLY" value="false" />
   </component>
   <component name="ProjectId" id="1yGcgQ4JyNAaRGuJ9Qw4q0NqxT0" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -88,7 +89,7 @@
       <updated>1631881475460</updated>
       <workItem from="1631881476768" duration="34000" />
       <workItem from="1631881701823" duration="1735000" />
-      <workItem from="1634408579211" duration="8180000" />
+      <workItem from="1634408579211" duration="11747000" />
     </task>
     <task id="LOCAL-00001" summary="Updating README.md, uploading a blank .py file: Test_NN_1.py">
       <created>1631882624525</created>
@@ -104,7 +105,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631883091775</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Word list creator: can parse jokes into nouns and verbs, then output similarity dataframes">
+      <created>1634417785626</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1634417785626</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -125,6 +133,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Updating README.md, uploading a blank .py file: Test_NN_1.py" />
     <MESSAGE value="Updating README.md (formatting)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updating README.md (formatting)" />
+    <MESSAGE value="Word list creator: can parse jokes into nouns and verbs, then output similarity dataframes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Word list creator: can parse jokes into nouns and verbs, then output similarity dataframes" />
   </component>
 </project>
