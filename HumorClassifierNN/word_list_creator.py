@@ -39,6 +39,13 @@ def get_similarities(word_list, pos):
 
 
 def results(joke):
+    """
+    param joke: a joke (str)
+    returns: tuple:
+        (noun similarities: path_similarity, wup_similarity, lch_similarity),
+        (verb similarities: path_similarity, wup_similarity, lch_similarity),
+        word list
+    """
     words = parse_joke(joke)
     similarities_nouns = get_similarities(words[0], wn.NOUN)
     similarities_verbs = get_similarities(words[1], wn.VERB)
