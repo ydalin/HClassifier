@@ -5,10 +5,10 @@ from nltk import word_tokenize
 import pandas as pd
 import pyjokes
 import numpy as np
+import csv
+
 
 joke = pyjokes.get_joke()
-print(joke)
-print('\n')
 
 def parse_joke(joke):
     nouns = []
@@ -51,12 +51,12 @@ def results(joke):
     similarities_verbs = get_similarities(words[1], wn.VERB)
     return similarities_nouns, similarities_verbs, words
 
+print(joke)
 results = results(joke)
 similarities_nouns = results[0]
 similarities_verbs = results[1]
 word_list = results[2]
-print('word list: ')
-print(results[2])
+print('word list: (nouns, verbs)' + str(results[2]))
 print('\npath similarity:')
 print(similarities_nouns[0])
 print('\nwup similarity:')

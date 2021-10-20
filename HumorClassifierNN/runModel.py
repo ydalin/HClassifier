@@ -1,11 +1,17 @@
 import numpy as np
-
-from keras.datasets import imdb
 from ClassifierModel import ClassifierNNModel as ClassNN
-word_indices = imdb.get_word_index(path="imdb_word_index.json")
+from word_list_creator import results
+from gather_data import gather_data
+import tensorflow as tf
 
-imdb_data = imdb.load_data(num_words=100)
 
-class_model = ClassNN(imdb_data).get_model()
-print(class_model)
-class_model.train()
+train_data, test_data, validation_data = gather_data()
+
+# noun_sims, verb_sims, word_list = results
+
+
+class_model = ClassNN(train_data, test_data, validation_data).get_model()
+
+class_model.compile()
+print(class_model.summary())
+# class_model.fit(train_data, epochs=150, batch_size=10)
