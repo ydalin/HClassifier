@@ -31,31 +31,22 @@ class ClassifierNNModel:
         # print(self.train_dataset)
 
 
-    def get_model(self, classifier=False):
-
-        vectorize_layer = TextVectorization(
-            max_tokens=None, standardize='lower_and_strip_punctuation',
-            split='whitespace', ngrams=None, output_mode='int',
-            output_sequence_length=None, pad_to_max_tokens=False)
-        inputs = Input(shape=())
-        # x = vectorize_layer(inputs)
-        # x = layers.Embedding(input_dim=len(vectorize_layer.get_vocabulary()), output_dim=4, input_length=2)(x)
-
-        x = layers.Embedding(input_dim=len(vectorize_layer.get_vocabulary()), output_dim=4, input_length=2)(inputs)
-
-        # x = layers.Dropout(0.5)(x)
-        # x = layers.Conv1D(128, 1, padding="valid", activation="relu")(x)
-        # x = layers.GlobalMaxPooling1D()(x)
-        x = layers.Dense(128, activation="relu")(x)
-        x = layers.Dropout(0.5)(x)
-        predictions = layers.Dense(1, activation="sigmoid", name="predictions")(x)
-
-        model = tf.keras.Model(inputs, predictions)
+    def get_model(self, data):
+        # inputs = Input(shape=(data.shape[1]-1))
+        # x = layers.Embedding(input_dim=(data.shape[1]-1), output_dim=128, input_length=data.shape[0])(inputs)
+        # x = layers.Dense(128, activation="relu")(x)
+        # x = layers.Dense(64, activation="relu")(x)
+        # predictions = layers.Dense(32, activation="sigmoid", name="predictions")(x)
+        # model = tf.keras.Model(inputs, predictions)
+        model = tf.keras.Sequential()
+        model.add(tf.keras.layers.Dense(128))
+        model.add(tf.keras.layers.Dense(64))
+        model.add(tf.keras.layers.Dense(64))
         return model
 
-    def train(self):
-        # Compile model
-        self.model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
-        # Fit the model
-        target = self.train_dataset.pop()
-        self.model.fit(self.train_dataset, self.test_dataset, validation_split=0.33, epochs=150, batch_size=10)
+    # def train(self):
+    #     # Compile model
+    #     self.model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
+    #     # Fit the model
+    #     target = self.train_dataset.pop()
+    #     self.model.fit(self.train_dataset, self.test_dataset, validation_split=0.33, epochs=150, batch_size=10)
