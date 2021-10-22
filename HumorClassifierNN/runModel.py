@@ -17,7 +17,7 @@ x_val = validation_data[:, :-1]
 y_val = validation_data[:, -1].astype(int)
 
 model.compile(optimizer='adam', loss='mse', metrics=['mse', 'acc'])
-history = model.fit(x, y, batch_size=500, epochs=5)
+history = model.fit(x, y, batch_size=500, epochs=15)
 print(history.history)
 print("Evaluate on test data")
 results = model.evaluate(x_test, y_test, batch_size=500)
