@@ -13,13 +13,15 @@ positive_data['funny'] = False
 
 #####
 # REMOVE FOR Real TRAINING!!!!!!!!
-negative_data = negative_data[:20]
-positive_data = positive_data[:20]
+# negative_data = negative_data[:20]
+# positive_data = positive_data[:20]
 #####
+
+# Merge and randomize positive and negative data
 data_in = pd.concat([negative_data, positive_data]).sample(frac=1)
 
 
-def gather_data(data=data_in, test_split=0.1, validation_split=0.2):
+def gather_data(data=data_in, test_split=0.2, validation_split=0.05):
     joke_stats = []
     for i in range(len(data)):
         stats = get_stats(data.iloc[i, 0])

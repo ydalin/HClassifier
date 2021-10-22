@@ -7,6 +7,7 @@ from keras.layers import Bidirectional
 from keras.layers import Embedding
 from keras.layers import Dense
 from keras.layers import SimpleRNN
+from keras.layers import MaxPooling1D
 import nltk
 from nltk.corpus import wordnet as wn
 from word_list_creator import get_similarities
@@ -31,17 +32,12 @@ class ClassifierNNModel:
 
 
     def get_model(self, data):
-        # inputs = Input(shape=(data.shape[1]-1))
-        # x = layers.Embedding(input_dim=(data.shape[1]-1), output_dim=128, input_length=data.shape[0])(inputs)
-        # x = layers.Dense(128, activation="relu")(x)
-        # x = layers.Dense(64, activation="relu")(x)
-        # predictions = layers.Dense(32, activation="sigmoid", name="predictions")(x)
-        # model = tf.keras.Model(inputs, predictions)
         model = tf.keras.Sequential()
         model.add(tf.keras.layers.Dense(data.shape[1]-1))
         # model.add(tf.keras.layers.Dense(8))
         # model.add(tf.keras.layers.Dense(8))
-        model.add(tf.keras.layers.Dense(1))
+        model.add(tf.keras.layers.Dense(6))
+        model.add(tf.keras.layers.MaxPooling1D())
         return model
 
     # def train(self):

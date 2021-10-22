@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="efd1aa41-7f00-4710-b63b-3013469395b0" name="Changes" comment="Model runs! Accuracy = 0, though :(&#10;&#10;https://www.tensorflow.org/api_docs/python/tf/keras/Sequential">
+    <list default="true" id="efd1aa41-7f00-4710-b63b-3013469395b0" name="Changes" comment="Fixed bug where word_list_creator.py would word multiple times, once for each synset (meaning) of the word.&#10;Now it adds it once.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HumorClassifierNN/ClassifierModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/HumorClassifierNN/ClassifierModel.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HumorClassifierNN/gather_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/HumorClassifierNN/gather_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HumorClassifierNN/runModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/HumorClassifierNN/runModel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HumorClassifierNN/word_list_creator.py" beforeDir="false" afterPath="$PROJECT_DIR$/HumorClassifierNN/word_list_creator.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,6 +177,8 @@
       <workItem from="1634731336240" duration="19015000" />
       <workItem from="1634762963123" duration="1145000" />
       <workItem from="1634765598277" duration="16635000" />
+      <workItem from="1634899340695" duration="3602000" />
+      <workItem from="1634905871807" duration="1143000" />
     </task>
     <task id="LOCAL-00001" summary="Updating README.md, uploading a blank .py file: Test_NN_1.py">
       <created>1631882624525</created>
@@ -221,7 +222,21 @@
       <option name="project" value="LOCAL" />
       <updated>1634749218534</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Set model to only look at Verbs and Nouns.&#10;Now Model has some results, but no better than random chance.">
+      <created>1634899535493</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1634899535493</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Fixed bug where word_list_creator.py would word multiple times, once for each synset (meaning) of the word.&#10;Now it adds it once.">
+      <created>1634899829870</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1634899829870</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -244,13 +259,15 @@
     <MESSAGE value="Word list creator: can parse jokes into nouns and verbs, then output similarity dataframes" />
     <MESSAGE value="Updating README.md (formatting)" />
     <MESSAGE value="Model runs! Accuracy = 0, though :(&#10;&#10;https://www.tensorflow.org/api_docs/python/tf/keras/Sequential" />
-    <option name="LAST_COMMIT_MESSAGE" value="Model runs! Accuracy = 0, though :(&#10;&#10;https://www.tensorflow.org/api_docs/python/tf/keras/Sequential" />
+    <MESSAGE value="Set model to only look at Verbs and Nouns.&#10;Now Model has some results, but no better than random chance." />
+    <MESSAGE value="Fixed bug where word_list_creator.py would word multiple times, once for each synset (meaning) of the word.&#10;Now it adds it once." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed bug where word_list_creator.py would word multiple times, once for each synset (meaning) of the word.&#10;Now it adds it once." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/A_NN_Classifier$word_list_creator.coverage" NAME="word_list_creator Coverage Results" MODIFIED="1634768047177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HumorClassifierNN" />
     <SUITE FILE_PATH="coverage/A_NN_Classifier$gather_data.coverage" NAME="gather_data Coverage Results" MODIFIED="1634744059349" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HumorClassifierNN" />
     <SUITE FILE_PATH="coverage/A_NN_Classifier1$runModel.coverage" NAME="runModel Coverage Results" MODIFIED="1634666025570" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HumorClassifierNN" />
     <SUITE FILE_PATH="coverage/A_NN_Classifier1$gather_data.coverage" NAME="gather_data Coverage Results" MODIFIED="1634493874638" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HumorClassifierNN" />
-    <SUITE FILE_PATH="coverage/A_NN_Classifier$runModel.coverage" NAME="runModel Coverage Results" MODIFIED="1634769122026" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HumorClassifierNN" />
+    <SUITE FILE_PATH="coverage/A_NN_Classifier$runModel.coverage" NAME="runModel Coverage Results" MODIFIED="1634899846425" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HumorClassifierNN" />
   </component>
 </project>
