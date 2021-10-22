@@ -44,4 +44,4 @@ for i in true:
 
 print('Predicted False: ' + str(len(false)))
 for i in false:
-    print('prediction: ' + true[i] + ' correct answer: ' + str(bool(true[i][1])))
+    print('prediction: ' + false[i] + ' correct answer: ' + str(bool(false[i][1])))
