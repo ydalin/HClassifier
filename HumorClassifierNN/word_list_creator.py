@@ -1,7 +1,6 @@
 import nltk
 from nltk.corpus import wordnet as wn
-from nltk import sent_tokenize
-from nltk import word_tokenize
+from nltk import sent_tokenize, word_tokenize, pos_tag
 import pandas as pd
 import pyjokes
 import numpy as np
@@ -12,7 +11,13 @@ import csv
 def parse_joke(joke):
     nouns = []
     verbs = []
-    for word in word_tokenize(joke):
+    joke_tagged = pos_tag(word_tokenize(joke))
+    tag_filtered = ''
+    for word in joke_tagged:
+        if word[1][0] == 'N' or word[1][0] == 'V':
+            tag_filtered += ' '
+            tag_filtered += word[0]
+    for word in word_tokenize(tag_filtered):
         synset = wn.synsets(word)
         if len(synset) > 0:
             for syn in synset:

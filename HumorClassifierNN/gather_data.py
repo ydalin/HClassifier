@@ -4,7 +4,6 @@ import tensorflow as tf
 from word_list_creator import get_stats
 import numpy as np
 
-
 negative_data = read_csv('negative_data_file.csv', names=['joke', 'funny'])
 positive_data = read_csv('positive_data_file.csv', names=['joke', 'funny'])
 
@@ -14,8 +13,8 @@ positive_data['funny'] = False
 
 #####
 # REMOVE FOR Real TRAINING!!!!!!!!
-negative_data = negative_data[:200]
-positive_data = positive_data[:200]
+negative_data = negative_data[:20]
+positive_data = positive_data[:20]
 #####
 data_in = pd.concat([negative_data, positive_data]).sample(frac=1)
 
@@ -35,13 +34,8 @@ def gather_data(data=data_in, test_split=0.1, validation_split=0.2):
     test_split = int(1 - test_split * len(data))
     test_data = split_data[test_split:]
     split_data = split_data[:test_split]
-
     validation_split = int(1 - validation_split * len(split_data))
     validation_data = split_data[validation_split:]
     train_data = split_data[:validation_split]
-
-    # train_data = tf.data.Dataset.from_tensors(train_data.iloc[:, 0]), tf.data.Dataset.from_tensors(train_data.iloc[:, 1])
-    # test_data = tf.data.Dataset.from_tensor_slices(test_data.iloc[:, 0]), tf.data.Dataset.from_tensor_slices(test_data.iloc[:, 1])
-    # validation_data = tf.data.Dataset.from_tensor_slices(validation_data.iloc[:, 0]), tf.data.Dataset.from_tensor_slices(validation_data.iloc[:, 1])
-
     return train_data, test_data, validation_data
+

@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="efd1aa41-7f00-4710-b63b-3013469395b0" name="Changes" comment="Updating README.md (formatting)">
+    <list default="true" id="efd1aa41-7f00-4710-b63b-3013469395b0" name="Changes" comment="Model runs! Accuracy = 0, though :(&#10;&#10;https://www.tensorflow.org/api_docs/python/tf/keras/Sequential">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HumorClassifierNN/ClassifierModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/HumorClassifierNN/ClassifierModel.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HumorClassifierNN/gather_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/HumorClassifierNN/gather_data.py" afterDir="false" />
@@ -41,6 +44,14 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="SET_USER_NAME_GLOBALLY" value="false" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/HumorClassifierNN/gather_data.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/HumorClassifierNN/negative_data_file.csv" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/HumorClassifierNN/ClassifierModel.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/HumorClassifierNN/positive_data_file.csv" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/HumorClassifierNN/word_list_creator.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/HumorClassifierNN/runModel.py" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectId" id="1yGcgQ4JyNAaRGuJ9Qw4q0NqxT0" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -53,7 +64,15 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings sdk-home="C:\Users\super\anaconda3\python.exe" working-directory="$PROJECT_DIR$">
+        <option name="mySdkHome" value="C:\Users\super\anaconda3\python.exe" />
+        <option name="myWorkingDirectory" value="$PROJECT_DIR$" />
+      </console-settings>
+    </option>
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -133,8 +152,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.runModel" />
-        <item itemvalue="Python.gather_data" />
         <item itemvalue="Python.word_list_creator" />
+        <item itemvalue="Python.gather_data" />
       </list>
     </recent_temporary>
   </component>
@@ -156,7 +175,9 @@
       <workItem from="1634490281335" duration="134000" />
       <workItem from="1634490444363" duration="26945000" />
       <workItem from="1634665716616" duration="1535000" />
-      <workItem from="1634731336240" duration="17504000" />
+      <workItem from="1634731336240" duration="19015000" />
+      <workItem from="1634762963123" duration="1145000" />
+      <workItem from="1634765598277" duration="16635000" />
     </task>
     <task id="LOCAL-00001" summary="Updating README.md, uploading a blank .py file: Test_NN_1.py">
       <created>1631882624525</created>
@@ -193,7 +214,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634424092851</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Model runs! Accuracy = 0, though :(&#10;&#10;https://www.tensorflow.org/api_docs/python/tf/keras/Sequential">
+      <created>1634749218534</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1634749218534</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -213,15 +241,16 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Updating README.md, uploading a blank .py file: Test_NN_1.py" />
-    <MESSAGE value="Updating README.md (formatting)" />
     <MESSAGE value="Word list creator: can parse jokes into nouns and verbs, then output similarity dataframes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Word list creator: can parse jokes into nouns and verbs, then output similarity dataframes" />
+    <MESSAGE value="Updating README.md (formatting)" />
+    <MESSAGE value="Model runs! Accuracy = 0, though :(&#10;&#10;https://www.tensorflow.org/api_docs/python/tf/keras/Sequential" />
+    <option name="LAST_COMMIT_MESSAGE" value="Model runs! Accuracy = 0, though :(&#10;&#10;https://www.tensorflow.org/api_docs/python/tf/keras/Sequential" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/A_NN_Classifier$word_list_creator.coverage" NAME="word_list_creator Coverage Results" MODIFIED="1634740345869" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HumorClassifierNN" />
+    <SUITE FILE_PATH="coverage/A_NN_Classifier$word_list_creator.coverage" NAME="word_list_creator Coverage Results" MODIFIED="1634768047177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HumorClassifierNN" />
     <SUITE FILE_PATH="coverage/A_NN_Classifier$gather_data.coverage" NAME="gather_data Coverage Results" MODIFIED="1634744059349" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HumorClassifierNN" />
     <SUITE FILE_PATH="coverage/A_NN_Classifier1$runModel.coverage" NAME="runModel Coverage Results" MODIFIED="1634666025570" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HumorClassifierNN" />
     <SUITE FILE_PATH="coverage/A_NN_Classifier1$gather_data.coverage" NAME="gather_data Coverage Results" MODIFIED="1634493874638" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HumorClassifierNN" />
-    <SUITE FILE_PATH="coverage/A_NN_Classifier$runModel.coverage" NAME="runModel Coverage Results" MODIFIED="1634748815475" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HumorClassifierNN" />
+    <SUITE FILE_PATH="coverage/A_NN_Classifier$runModel.coverage" NAME="runModel Coverage Results" MODIFIED="1634769122026" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HumorClassifierNN" />
   </component>
 </project>

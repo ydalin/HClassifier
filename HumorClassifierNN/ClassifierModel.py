@@ -3,7 +3,6 @@ import pandas as pd
 from keras.models import Model
 from keras import layers
 from keras.layers import Input
-from keras.layers import TextVectorization
 from keras.layers import Bidirectional
 from keras.layers import Embedding
 from keras.layers import Dense
@@ -39,9 +38,10 @@ class ClassifierNNModel:
         # predictions = layers.Dense(32, activation="sigmoid", name="predictions")(x)
         # model = tf.keras.Model(inputs, predictions)
         model = tf.keras.Sequential()
-        model.add(tf.keras.layers.Dense(128))
-        model.add(tf.keras.layers.Dense(64))
-        model.add(tf.keras.layers.Dense(64))
+        model.add(tf.keras.layers.Dense(data.shape[1]-1))
+        # model.add(tf.keras.layers.Dense(8))
+        # model.add(tf.keras.layers.Dense(8))
+        model.add(tf.keras.layers.Dense(1))
         return model
 
     # def train(self):
