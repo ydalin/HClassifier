@@ -19,8 +19,8 @@ y_test = test_data[:, -1].astype(int)
 x_val = validation_data[:, :-1]
 y_val = validation_data[:, -1].astype(int)
 
-reduce_lr = ReduceLROnPlateau(monitor='loss', factor=0.4,
-                              patience=0, min_lr=0.1)
+reduce_lr = ReduceLROnPlateau(monitor='val_loss', factor=0.5,
+                              patience=2)
 
 model.compile(optimizer='adam', loss='mse', metrics=['mse', 'acc'])
 history = model.fit(x, y, batch_size=500, epochs=5, callbacks=[reduce_lr])
