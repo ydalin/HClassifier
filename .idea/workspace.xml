@@ -175,7 +175,7 @@
       <workItem from="1634762963123" duration="1145000" />
       <workItem from="1634765598277" duration="16635000" />
       <workItem from="1634899340695" duration="3602000" />
-      <workItem from="1634905871807" duration="3119000" />
+      <workItem from="1634905871807" duration="3468000" />
     </task>
     <task id="LOCAL-00001" summary="Updating README.md, uploading a blank .py file: Test_NN_1.py">
       <created>1631882624525</created>
@@ -247,7 +247,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634908958436</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Changes:&#10;1. Changed parameters in callback 'ReduceLROnPlateau' to reduce learning rate more aggressively&#10;2. Added input layer (oops, forgot that!)&#10;3. Changed model optimizer from Stochastic Gradient Descent to ADAM&#10;Results:&#10;Now it outputs only 1.0, not a range. But only 1.0, never 0!&#10;So it needs more work...">
+      <created>1634909148542</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1634909148542</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

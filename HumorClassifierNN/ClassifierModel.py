@@ -34,7 +34,8 @@ class ClassifierNNModel:
     def get_model(self, data):
         model = tf.keras.Sequential()
         model.add(tf.keras.layers.InputLayer(input_shape=data.shape[1]-1))
-        model.add(tf.keras.layers.Dense(32, activation='relu'))
+        model.add(tf.keras.layers.Dense(8, activation='relu'))
+        model.add(tf.keras.layers.Dense(4, activation='relu'))
         model.add(tf.keras.layers.Dense(1, activation='softmax'))
         return model
 

@@ -46,8 +46,8 @@ for i in range(len(predictions)):
 
 print('Predicted True: ' + str(len(true)))
 for i in true:
-    print('prediction: ' + str(predictions[i][0]) + ' correct: ' + str(bool(predictions[i][0][1])))
+    print('prediction: ' + str(true[i][0]) + ' correct: ' + str(bool(true[i][0][1])))
 
 print('Predicted False: ' + str(len(false)))
 for i in false:
-    print('prediction: ' + str(predictions[i][0]) + ' correct: ' + str(bool(predictions[i][0][1])))
+    print('prediction: ' + str(true[i][0]) + ' correct: ' + str(bool(true[i][0][1])))
