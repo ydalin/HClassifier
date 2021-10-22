@@ -23,8 +23,10 @@ def parse_joke(joke):
             for syn in synset:
                 if word not in nouns and syn.pos() == 'n':
                     nouns.append(word)
-                if word not in verbs and syn.pos() == 'v':
+                    break
+                elif word not in verbs and syn.pos() == 'v':
                     verbs.append(word)
+                    break
     return nouns, verbs
 
 
