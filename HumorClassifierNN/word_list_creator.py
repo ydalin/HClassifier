@@ -14,7 +14,8 @@ def parse_joke(joke):
     joke_tagged = pos_tag(word_tokenize(joke))
     tag_filtered = ''
     for word in joke_tagged:
-        if word[1][0] == 'N' or word[1][0] == 'V':
+        # if (word[1][0] == 'N' or word[1][0] == 'V') and (word[0] not in tag_filtered):
+        if word[1][0] == 'N' and word[0] not in tag_filtered:
             tag_filtered += ' '
             tag_filtered += word[0]
     for word in word_tokenize(tag_filtered):
@@ -24,10 +25,10 @@ def parse_joke(joke):
                 if word not in nouns and syn.pos() == 'n':
                     nouns.append(word)
                     break
-                elif word not in verbs and syn.pos() == 'v':
-                    verbs.append(word)
-                    break
-    return nouns, verbs
+                # elif word not in verbs and syn.pos() == 'v':
+                #     verbs.append(word)
+                #     break
+    return nouns, verbs, joke
 
 
 # def get_similarities(word_list, pos):
@@ -43,7 +44,7 @@ def parse_joke(joke):
 #             lch_similarity.iloc[i].iloc[j] = row_synset[0].lch_similarity(column_synset[0])
 #     return path_similarity, wup_similarity, lch_similarity
 
-#Only wup similarities
+# Only wup similarities
 def get_similarities(word_list, pos):
     # path_similarity = pd.DataFrame(index=word_list, columns=word_list)
     wup_similarity = pd.DataFrame(index=word_list, columns=word_list)
@@ -56,7 +57,7 @@ def get_similarities(word_list, pos):
             for r in row_synset:
                 for c in column_synset:
                     diffs.append(r.wup_similarity(c))
-            wup_similarity.iloc[i].iloc[j] = np.max(diffs) - np.min(diffs) # diff b/w max and min of synsets
+            wup_similarity.iloc[i].iloc[j] = np.min(diffs)  # min of synsets
     return wup_similarity
 
 
@@ -91,7 +92,7 @@ def results(joke):
     # similarities_all = []
     # for i in range(len(similarities_nouns)):
     #     similarities_all.append(pd.concat([similarities_nouns[i], similarities_verbs[i]]))
-    return similarities_nouns, similarities_verbs
+    return similarities_nouns, similarities_verbs, words[2]
 
 
 # def get_stats(joke):
@@ -121,26 +122,31 @@ def results(joke):
 
 def get_stats(joke):
     result = results(joke)
+    similarities = result[0]
+    thresh = 0.5
+
+    similarities[similarities < thresh] = 0
     # Create list of dataframe stats for nouns, verbs, and both: standard dev, max (below 1), min, mean, mode, median
-    stats = []
-    for ele in result:
-        ele = ele.fillna(value=-1).replace(1, -1)
-        ele = ele.to_numpy().flatten()
-        ele = ele[ele > -1]
-        if len(ele) == 0:
-            pass
-            # stats.append(-1)
-            # stats.append(-1)
-            # stats.append(-1)
-            # stats.append(-1)
-            # stats.append(-1)
-        else:
-            stats.append(ele.max())
-            # stats.append(ele.mean())
-            # stats.append(ele.min())
-            # stats.append(scipystats.mode(ele)[0][0])
-            # stats.append(scipystats.median_abs_deviation(ele))
-    return stats
+    # stats = []
+    # for ele in result[:-1]:
+    #     ele = ele.fillna(value=-1).replace(1, -1)
+    #     ele = ele.to_numpy().flatten()
+    #     ele = ele[ele > -1]
+    #     if len(ele) == 0:
+    #         pass
+    #         # stats.append(-1)
+    #         # stats.append(-1)
+    #         # stats.append(-1)
+    #         # stats.append(-1)
+    #         # stats.append(-1)
+    #     else:
+    #         stats.append(ele.max())
+    #         # stats.append(ele.mean())
+    #         # stats.append(ele.min())
+    #         # stats.append(scipystats.mode(ele)[0][0])
+    #         # stats.append(scipystats.median_abs_deviation(ele))
+    stats = similarities.values.sum()
+    return stats, result[-1]
 
 # pyjoke = pyjokes.get_joke()
 # print(pyjoke)

@@ -6,17 +6,43 @@ import tensorflow as tf
 from keras.callbacks import ReduceLROnPlateau
 
 train_data, test_data, validation_data = gather_data()
-print('train data')
+
+x = []
+y = []
+j = []
 print(train_data)
+for i in range(len(train_data)):
+    d = train_data[i]
+    print(d[1])
+    x.append(d[0])
+    y.append(d[1])
+    j.append(d[2])
+x_test = []
+y_test = []
+j_test = []
+for i in range(len(test_data)):
+    d = test_data[i]
+    x_test.append(d[0])
+    y_test.append(d[1])
+    j_test.append(d[2])
+x_val = []
+y_val = []
+j_val = []
 
-model = get_model(train_data)
+for i in range(len(validation_data)):
+    d = validation_data[i]
+    x_val.append(d[0])
+    y_val.append(d[1])
+    j_val.append(d[2])
 
-x = train_data[:, :-1]
-y = train_data[:, -1].astype(int)
-x_test = test_data[:, :-1]
-y_test = test_data[:, -1].astype(int)
-x_val = validation_data[:, :-1]
-y_val = validation_data[:, -1].astype(int)
+x = np.array(x)
+y = np.array(y).astype(int)
+x_test = np.array(x_test)
+y_test = np.array(y_test).astype(int)
+x_val = np.array(x_val)
+y_val = np.array(y_val).astype(int)
+
+model = get_model(x)
 
 model.compile(optimizer='adam', loss='mse', metrics=['mse', 'acc'])
 history = model.fit(x, y, batch_size=500, epochs=3)
