@@ -6,6 +6,8 @@ import tensorflow as tf
 from keras.callbacks import ReduceLROnPlateau
 
 train_data, test_data, validation_data = gather_data()
+print('train data')
+print(train_data)
 
 model = get_model(train_data)
 
@@ -17,7 +19,8 @@ x_val = validation_data[:, :-1]
 y_val = validation_data[:, -1].astype(int)
 
 model.compile(optimizer='adam', loss='mse', metrics=['mse', 'acc'])
-history = model.fit(x, y, batch_size=500, epochs=15)
+history = model.fit(x, y, batch_size=500, epochs=3)
+print('history:')
 print(history.history)
 print("Evaluate on test data")
 results = model.evaluate(x_test, y_test, batch_size=500)
@@ -40,8 +43,8 @@ for i in range(len(predictions)):
 
 print('Predicted True: ' + str(len(true)))
 for i in true:
-    print('prediction: ' + true[i] + ' correct answer: ' + str(bool(true[i][1])))
+    print('prediction: ' + true[i][0] + ' correct answer: ' + str(bool(true[i][1])))
 
 print('Predicted False: ' + str(len(false)))
 for i in false:
-    print('prediction: ' + false[i] + ' correct answer: ' + str(bool(false[i][1])))
+    print('prediction: ' + false[i][0] + ' correct answer: ' + str(bool(false[i][1])))
