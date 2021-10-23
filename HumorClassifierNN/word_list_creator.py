@@ -128,7 +128,8 @@ def get_stats(joke):
         ele = ele.to_numpy().flatten()
         ele = ele[ele > -1]
         if len(ele) == 0:
-            stats.append(-1)
+            pass
+            # stats.append(-1)
             # stats.append(-1)
             # stats.append(-1)
             # stats.append(-1)

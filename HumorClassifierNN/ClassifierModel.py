@@ -16,7 +16,7 @@ import tensorflow as tf
 
 def get_model(data):
     model = tf.keras.Sequential()
-    model.add(tf.keras.layers.InputLayer())
+    model.add(tf.keras.layers.InputLayer(input_shape=data.shape[1] - 1))
     model.add(tf.keras.layers.Dense(8, activation='relu'))
     model.add(tf.keras.layers.Dense(4, activation='relu'))
     model.add(tf.keras.layers.Dense(1, activation='softmax'))

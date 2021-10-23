@@ -42,9 +42,9 @@ for i in range(len(predictions)):
     print('prediction: ' + str(bool(predictions[i][0])) + ' correct answer: ' + str(bool(y_val[i])))
 
 print('Predicted True: ' + str(len(true)))
-for i in true:
+for i in range(len(true)):
     print('prediction: ' + true[i][0] + ' correct answer: ' + str(bool(true[i][1])))
 
 print('Predicted False: ' + str(len(false)))
-for i in false:
+for i in range(len(false)):
     print('prediction: ' + false[i][0] + ' correct answer: ' + str(bool(false[i][1])))
