@@ -46,19 +46,25 @@ def parse_joke(joke):
 
 # Only wup similarities
 def get_similarities(word_list, pos):
-    # path_similarity = pd.DataFrame(index=word_list, columns=word_list)
+    path_similarity = pd.DataFrame(index=word_list, columns=word_list)
     wup_similarity = pd.DataFrame(index=word_list, columns=word_list)
-    # lch_similarity = pd.DataFrame(index=word_list, columns=word_list)
+    lch_similarity = pd.DataFrame(index=word_list, columns=word_list)
     for i in range(len(wup_similarity.index.values)):
         row_synset = wn.synsets(wup_similarity.index.values[i], pos=pos)
         for j in range(len(wup_similarity.columns.values)):
             column_synset = wn.synsets(wup_similarity.columns.values[j], pos=pos)
-            diffs = []
+            path_diffs = []
+            wup_diffs = []
+            lch_diffs = []
             for r in row_synset:
                 for c in column_synset:
-                    diffs.append(r.wup_similarity(c))
-            wup_similarity.iloc[i].iloc[j] = np.min(diffs)  # min of synsets
-    return wup_similarity
+                    path_diffs.append(r.path_similarity(c))
+                    wup_diffs.append(r.wup_similarity(c))
+                    lch_diffs.append(r.lch_similarity(c))
+            path_similarity.iloc[i].iloc[j] = np.min(path_diffs)  # min of synsets
+            wup_similarity.iloc[i].iloc[j] = np.min(wup_diffs)  # min of synsets
+            lch_similarity.iloc[i].iloc[j] = np.min(lch_diffs)  # min of synsets
+    return path_similarity, wup_similarity, lch_similarity
 
 
 # def results(joke):
@@ -124,8 +130,11 @@ def get_stats(joke):
     result = results(joke)
     similarities = result[0]
     thresh = 0.5
+    stats = []
+    for similarity in similarities:
+        similarity[similarity < thresh] = 0
+        stats.append(similarity.values.sum())
 
-    similarities[similarities < thresh] = 0
     # Create list of dataframe stats for nouns, verbs, and both: standard dev, max (below 1), min, mean, mode, median
     # stats = []
     # for ele in result[:-1]:
@@ -145,8 +154,9 @@ def get_stats(joke):
     #         # stats.append(ele.min())
     #         # stats.append(scipystats.mode(ele)[0][0])
     #         # stats.append(scipystats.median_abs_deviation(ele))
-    stats = similarities.values.sum()
     return stats, result[-1]
+
+
 
 # pyjoke = pyjokes.get_joke()
 # print(pyjoke)

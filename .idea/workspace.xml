@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="efd1aa41-7f00-4710-b63b-3013469395b0" name="Changes" comment="1. Trying only wup similarity&#10;2. Trying only Nouns stats and Verbs stats, not also joined Nouns and Verbs stats&#10;3. Adding differences between max and min difference between each pair of synsets, not differences b/w all synsets&#10;4. Only add max of stat, nothing else">
+    <list default="true" id="efd1aa41-7f00-4710-b63b-3013469395b0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HumorClassifierNN/ClassifierModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/HumorClassifierNN/ClassifierModel.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HumorClassifierNN/gather_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/HumorClassifierNN/gather_data.py" afterDir="false" />
@@ -152,8 +152,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.runModel" />
-        <item itemvalue="Python.word_list_creator" />
         <item itemvalue="Python.gather_data" />
+        <item itemvalue="Python.word_list_creator" />
       </list>
     </recent_temporary>
   </component>
@@ -181,7 +181,9 @@
       <workItem from="1634899340695" duration="3602000" />
       <workItem from="1634905871807" duration="6012000" />
       <workItem from="1635009057453" duration="5654000" />
-      <workItem from="1635020920046" duration="7939000" />
+      <workItem from="1635020920046" duration="16895000" />
+      <workItem from="1635109006249" duration="7107000" />
+      <workItem from="1635183950480" duration="594000" />
     </task>
     <task id="LOCAL-00001" summary="Updating README.md, uploading a blank .py file: Test_NN_1.py">
       <created>1631882624525</created>
@@ -302,7 +304,21 @@
       <option name="project" value="LOCAL" />
       <updated>1635022933565</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="1. Changed to add min similarity (least amount of similarity) of synsets&#10;2. Added threshold to remove similarities below 0.5 similarity&#10;3. Made stat sum of all similarities in a joke">
+      <created>1635031587069</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1635031587069</updated>
+    </task>
+    <task id="LOCAL-00019" summary="1. Changed to add min similarity (least amount of similarity) of synsets&#10;2. Added threshold to remove similarities below 0.5 similarity&#10;3. Made stat sum of all similarities in a joke">
+      <created>1635031595547</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1635031595547</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -334,13 +350,14 @@
     <MESSAGE value="Added Bidirectional layer" />
     <MESSAGE value="1. Trying only wup similarity&#10;2. Trying only Nouns stats and Verbs stats, not also joined Nouns and Verbs stats&#10;3. Adding differences between max and min difference between each pair of synsets, not differences b/w all synsets" />
     <MESSAGE value="1. Trying only wup similarity&#10;2. Trying only Nouns stats and Verbs stats, not also joined Nouns and Verbs stats&#10;3. Adding differences between max and min difference between each pair of synsets, not differences b/w all synsets&#10;4. Only add max of stat, nothing else" />
-    <option name="LAST_COMMIT_MESSAGE" value="1. Trying only wup similarity&#10;2. Trying only Nouns stats and Verbs stats, not also joined Nouns and Verbs stats&#10;3. Adding differences between max and min difference between each pair of synsets, not differences b/w all synsets&#10;4. Only add max of stat, nothing else" />
+    <MESSAGE value="1. Changed to add min similarity (least amount of similarity) of synsets&#10;2. Added threshold to remove similarities below 0.5 similarity&#10;3. Made stat sum of all similarities in a joke" />
+    <option name="LAST_COMMIT_MESSAGE" value="1. Changed to add min similarity (least amount of similarity) of synsets&#10;2. Added threshold to remove similarities below 0.5 similarity&#10;3. Made stat sum of all similarities in a joke" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/A_NN_Classifier$word_list_creator.coverage" NAME="word_list_creator Coverage Results" MODIFIED="1634768047177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HumorClassifierNN" />
-    <SUITE FILE_PATH="coverage/A_NN_Classifier$gather_data.coverage" NAME="gather_data Coverage Results" MODIFIED="1634744059349" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HumorClassifierNN" />
+    <SUITE FILE_PATH="coverage/A_NN_Classifier$gather_data.coverage" NAME="gather_data Coverage Results" MODIFIED="1635109296071" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HumorClassifierNN" />
     <SUITE FILE_PATH="coverage/A_NN_Classifier1$runModel.coverage" NAME="runModel Coverage Results" MODIFIED="1634666025570" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HumorClassifierNN" />
     <SUITE FILE_PATH="coverage/A_NN_Classifier1$gather_data.coverage" NAME="gather_data Coverage Results" MODIFIED="1634493874638" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HumorClassifierNN" />
-    <SUITE FILE_PATH="coverage/A_NN_Classifier$runModel.coverage" NAME="runModel Coverage Results" MODIFIED="1635017439331" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HumorClassifierNN" />
+    <SUITE FILE_PATH="coverage/A_NN_Classifier$runModel.coverage" NAME="runModel Coverage Results" MODIFIED="1635110384584" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HumorClassifierNN" />
   </component>
 </project>
