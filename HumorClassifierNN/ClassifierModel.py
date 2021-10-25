@@ -16,7 +16,7 @@ import tensorflow as tf
 
 def get_model(datashape):
     model = tf.keras.Sequential()
-    model.add(tf.keras.layers.Input(shape=(3,)))
+    model.add(tf.keras.layers.Input(shape=(2,)))
     # model.add(tf.keras.layers.Dense(128))
     # model.add(tf.keras.layers.Dense(64))
     # model.add(tf.keras.layers.Dense(32))

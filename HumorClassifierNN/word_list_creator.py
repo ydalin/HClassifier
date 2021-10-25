@@ -94,7 +94,9 @@ def results(joke):
     """
     words = parse_joke(joke)
     similarities_nouns = get_similarities(words[0], wn.NOUN)
-    similarities_verbs = get_similarities(words[1], wn.VERB)
+    # similarities_verbs = get_similarities(words[1], wn.VERB)
+    similarities_verbs = -1
+
     # similarities_all = []
     # for i in range(len(similarities_nouns)):
     #     similarities_all.append(pd.concat([similarities_nouns[i], similarities_verbs[i]]))
@@ -132,8 +134,10 @@ def get_stats(joke):
     thresh = 0.5
     stats = []
     for similarity in similarities:
-        similarity[similarity < thresh] = 0
-        stats.append(similarity.values.sum())
+        # similarity[similarity < thresh] = 0
+        # stats.append(similarity.values.sum())
+        hist = np.histogram(similarity.as_numpy(), bins=3, range=(0, 1), density=True)
+        stats.append(hist)
 
     # Create list of dataframe stats for nouns, verbs, and both: standard dev, max (below 1), min, mean, mode, median
     # stats = []

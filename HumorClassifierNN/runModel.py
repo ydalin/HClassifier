@@ -1,27 +1,28 @@
 import numpy as np
 from ClassifierModel import get_model
 # from word_list_creator import results
-# from gather_data import gather_data
+from gather_data import gather_data
 import tensorflow as tf
 # from keras.callbacks import ReduceLROnPlateau
 import pickle
 
 print('Gathering data')
 
-file_name = "stats.pkl"
-open_file = open(file_name, "rb")
-stats = pickle.load(open_file)
-open_file.close()
+# file_name = "stats.pkl"
+# open_file = open(file_name, "rb")
+# stats = pickle.load(open_file)
+# open_file.close()
 
+stats = gather_data()
+
+print('Data Gathered')
 train_data, test_data, validation_data = stats
 
 x = []
 y = []
 j = []
-print(train_data)
 for i in range(len(train_data)):
     d = train_data[i]
-    print(d[1])
     x.append(d[0])
     y.append(d[1])
     j.append(d[2])
@@ -30,7 +31,6 @@ y_test = []
 j_test = []
 for i in range(len(test_data)):
     d = test_data[i]
-    print(d)
     x_test.append(d[0])
     y_test.append(d[1])
     j_test.append(d[2])
@@ -44,16 +44,18 @@ for i in range(len(validation_data)):
     y_val.append(d[1])
     j_val.append(d[2])
 
-x = np.array(x)
+# x = np.array(x)
 y = np.array(y).astype(int)
-x_test = np.array(x_test)
+# x_test = np.array(x_test)
 y_test = np.array(y_test).astype(int)
-x_val = np.array(x_val)
+# x_val = np.array(x_val)
 y_val = np.array(y_val).astype(int)
 
 print('training')
-print(x.shape)
-model = get_model(x.shape)
+print(x[0].shape)
+print('x[0]: ')
+print(x[0])
+model = get_model(x[0].shape)
 
 model.compile(optimizer='adam', loss='mse', metrics=['mse', 'acc'])
 history = model.fit(x, y, epochs=150)

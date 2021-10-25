@@ -37,10 +37,10 @@ def gather_data(data=data_in, test_split=0.2, validation_split=0.05):
     return train_data, test_data, validation_data
 
 
-stats = gather_data()
-
-file_name = "stats.pkl"
-
-open_file = open(file_name, "wb")
-pickle.dump(stats, open_file)
-open_file.close()
+# stats = gather_data()
+#
+# file_name = "stats.pkl"
+#
+# open_file = open(file_name, "wb")
+# pickle.dump(stats, open_file)
+# open_file.close()
