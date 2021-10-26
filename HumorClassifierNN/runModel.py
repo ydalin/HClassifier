@@ -44,21 +44,18 @@ for i in range(len(validation_data)):
     y_val.append(d[1])
     j_val.append(d[2])
 
-# x = np.array(x)
-y = np.array(y).astype(int)
-# x_test = np.array(x_test)
-y_test = np.array(y_test).astype(int)
-# x_val = np.array(x_val)
-y_val = np.array(y_val).astype(int)
+x = np.asarray(x).astype('float32')
+y = np.asarray(y).astype(int)
+x_test = np.asarray(x_test).astype('float32')
+y_test = np.asarray(y_test).astype(int)
+x_val = np.asarray(x_val).astype('float32')
+y_val = np.asarray(y_val).astype(int)
 
 print('training')
-print(x[0].shape)
-print('x[0]: ')
-print(x[0])
-model = get_model(x[0].shape)
+model = get_model(x)
 
 model.compile(optimizer='adam', loss='mse', metrics=['mse', 'acc'])
-history = model.fit(x, y, epochs=150)
+history = model.fit(x, y, epochs=30)
 # print('history:')
 # print(history.history)
 print("Evaluate on test data")
@@ -74,9 +71,9 @@ predictions = model.predict(x_val[:num_predictions])
 true = []
 false = []
 for i in range(len(predictions)):
-    if predictions[i][0] > 1:
+    if predictions[i][0] >= 0.5:
         true.append((predictions[i][0], y_val[i]))
-    elif predictions[i][0] < 0.1:
+    elif predictions[i][0] < 0.5:
         false.append((predictions[i][0], y_val[i]))
     # print('prediction: ' + str(predictions[i][0]) + ', correct answer: ' + str(bool(y_val[i])) + ', joke: ' + str(j_val[i]) + '\n')
 
@@ -94,9 +91,9 @@ for i in range(len(false)):
     if bool(y_val[i]) == False:
         count_correct_false += 1
 
-print('total correct true: ' + str(count_correct_true) + ', pct correct: ' + str(count_correct_true*100/len(true)))
-print('total correct false: ' + str(count_correct_false) + ', pct correct: ' + str(count_correct_false*100/len(false)))
+print('total correct true: ' + str(count_correct_true) + ', pct correct: ' + str(count_correct_true*100/(len(true)+.0001)))
+print('total correct false: ' + str(count_correct_false) + ', pct correct: ' + str(count_correct_false*100/(len(false)+.0001)))
 false_count = np.where(y_val.copy() == False)[0].shape[0]
 true_count = np.where(y_val.copy() == True)[0].shape[0]
 
-print(false_count/(false_count+true_count), true_count/(false_count+true_count))
+print(str(false_count*100/(false_count+true_count)) + '% False Correct, ' + str(true_count*100/(false_count+true_count)) + '% True Correct')

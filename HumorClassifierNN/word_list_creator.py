@@ -6,6 +6,7 @@ import pyjokes
 import numpy as np
 from scipy import stats as scipystats
 import csv
+import math
 
 
 def parse_joke(joke):
@@ -49,22 +50,28 @@ def get_similarities(word_list, pos):
     path_similarity = pd.DataFrame(index=word_list, columns=word_list)
     wup_similarity = pd.DataFrame(index=word_list, columns=word_list)
     lch_similarity = pd.DataFrame(index=word_list, columns=word_list)
-    for i in range(len(wup_similarity.index.values)):
-        row_synset = wn.synsets(wup_similarity.index.values[i], pos=pos)
-        for j in range(len(wup_similarity.columns.values)):
-            column_synset = wn.synsets(wup_similarity.columns.values[j], pos=pos)
-            path_diffs = []
-            wup_diffs = []
-            lch_diffs = []
-            for r in row_synset:
-                for c in column_synset:
-                    path_diffs.append(r.path_similarity(c))
-                    wup_diffs.append(r.wup_similarity(c))
-                    lch_diffs.append(r.lch_similarity(c))
-            path_similarity.iloc[i].iloc[j] = np.min(path_diffs)  # min of synsets
-            wup_similarity.iloc[i].iloc[j] = np.min(wup_diffs)  # min of synsets
-            lch_similarity.iloc[i].iloc[j] = np.min(lch_diffs)  # min of synsets
-    return path_similarity, wup_similarity, lch_similarity
+    for i in range(len(wup_similarity.index.to_numpy())):
+        row_synset = wn.synsets(wup_similarity.copy().index.values[i], pos=pos)
+        for j in range(len(wup_similarity.columns.to_numpy())):
+            similarity = wup_similarity.copy().columns.values[j]
+            if type(similarity) is str:
+                column_synset = wn.synsets(similarity, pos=pos)
+                path_diffs = []
+                wup_diffs = []
+                lch_diffs = []
+                for r in row_synset:
+                    for c in column_synset:
+                        path_diffs.append(r.path_similarity(c))
+                        wup_diffs.append(r.wup_similarity(c))
+                        lch_diffs.append(r.lch_similarity(c))
+                path_similarity[i, j] = min(path_diffs)
+                wup_similarity[i, j] = min(wup_diffs)
+                lch_similarity[i, j] = min(lch_diffs)
+            else:
+                path_similarity[i, j] = 0
+                wup_similarity[i, j] = 0
+                lch_similarity[i, j] = 0
+    return path_similarity.copy(), wup_similarity.copy(), lch_similarity.copy()
 
 
 # def results(joke):
@@ -136,8 +143,9 @@ def get_stats(joke):
     for similarity in similarities:
         # similarity[similarity < thresh] = 0
         # stats.append(similarity.values.sum())
-        hist = np.histogram(similarity.as_numpy(), bins=3, range=(0, 1), density=True)
-        stats.append(hist)
+        hist = np.nan_to_num(np.histogram(similarity, bins=3, range=(0, 1), density=True)[0]).tolist()
+        if len(hist) == 3 and all(hist) is not None:
+            stats.append(hist)
 
     # Create list of dataframe stats for nouns, verbs, and both: standard dev, max (below 1), min, mean, mode, median
     # stats = []

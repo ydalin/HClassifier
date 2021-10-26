@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="efd1aa41-7f00-4710-b63b-3013469395b0" name="Changes" comment="used pickle, to export joke stat data so I don't have to regenerate each time I train">
+    <list default="true" id="efd1aa41-7f00-4710-b63b-3013469395b0" name="Changes" comment="Changed to use 1D histogram of joke similarities">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HumorClassifierNN/ClassifierModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/HumorClassifierNN/ClassifierModel.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HumorClassifierNN/gather_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/HumorClassifierNN/gather_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HumorClassifierNN/runModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/HumorClassifierNN/runModel.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HumorClassifierNN/word_list_creator.py" beforeDir="false" afterPath="$PROJECT_DIR$/HumorClassifierNN/word_list_creator.py" afterDir="false" />
@@ -183,7 +184,7 @@
       <workItem from="1635020920046" duration="16895000" />
       <workItem from="1635109006249" duration="7107000" />
       <workItem from="1635183950480" duration="3937000" />
-      <workItem from="1635202940393" duration="436000" />
+      <workItem from="1635202940393" duration="11970000" />
     </task>
     <task id="LOCAL-00001" summary="Updating README.md, uploading a blank .py file: Test_NN_1.py">
       <created>1631882624525</created>
@@ -332,7 +333,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635184692814</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Changed to use 1D histogram of joke similarities">
+      <created>1635203739232</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1635203739232</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -367,7 +375,8 @@
     <MESSAGE value="1. Changed to add min similarity (least amount of similarity) of synsets&#10;2. Added threshold to remove similarities below 0.5 similarity&#10;3. Made stat sum of all similarities in a joke" />
     <MESSAGE value="Edited Model and statistics, I think it's predicting a 'joke' every time. Have to figure out how to fix." />
     <MESSAGE value="used pickle, to export joke stat data so I don't have to regenerate each time I train" />
-    <option name="LAST_COMMIT_MESSAGE" value="used pickle, to export joke stat data so I don't have to regenerate each time I train" />
+    <MESSAGE value="Changed to use 1D histogram of joke similarities" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed to use 1D histogram of joke similarities" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/A_NN_Classifier$word_list_creator.coverage" NAME="word_list_creator Coverage Results" MODIFIED="1634768047177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HumorClassifierNN" />

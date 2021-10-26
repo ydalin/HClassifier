@@ -14,14 +14,15 @@ from word_list_creator import get_similarities
 import tensorflow as tf
 
 
-def get_model(datashape):
+def get_model(data):
+    print(data.shape)
     model = tf.keras.Sequential()
-    model.add(tf.keras.layers.Input(shape=(2,)))
+    model.add(tf.keras.layers.Dense(3, input_shape=(data.shape[1], data.shape[2],)))
     # model.add(tf.keras.layers.Dense(128))
     # model.add(tf.keras.layers.Dense(64))
     # model.add(tf.keras.layers.Dense(32))
     # model.add(tf.keras.layers.Dense(16))
     # model.add(tf.keras.layers.Dense(8))
-    model.add(tf.keras.layers.Dense(4))
+    # model.add(tf.keras.layers.Dense(4))
     model.add(tf.keras.layers.Dense(1))
     return model
