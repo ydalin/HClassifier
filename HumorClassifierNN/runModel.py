@@ -1,7 +1,7 @@
 import numpy as np
 from ClassifierModel import get_model
 # from word_list_creator import results
-from gather_data import gather_data
+# from gather_data import gather_data
 import tensorflow as tf
 # from keras.callbacks import ReduceLROnPlateau
 import pickle
