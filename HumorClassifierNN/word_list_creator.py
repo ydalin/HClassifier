@@ -71,7 +71,7 @@ def get_similarities(word_list, pos):
                 path_similarity[i, j] = 0.0
                 wup_similarity[i, j] = 0.0
                 lch_similarity[i, j] = 0.0
-    return path_similarity.copy(), wup_similarity.copy(), lch_similarity.copy()
+    return path_similarity, wup_similarity, lch_similarity
 
 
 # def results(joke):
@@ -143,8 +143,8 @@ def get_stats(joke):
     for similarity in similarities:
         # similarity[similarity < thresh] = 0
         # stats.append(similarity.values.sum())
-        hist = np.nan_to_num(np.histogram(similarity, bins=5, range=(0, 1), density=True)[0]).tolist()
-        if all(hist) != 0:
+        hist = np.nan_to_num(np.histogram(similarity, bins=3, range=(0, 1), density=True)[0]).tolist()
+        if len(hist) == 3 and all(hist) is not None:
             stats.append(hist)
 
     # Create list of dataframe stats for nouns, verbs, and both: standard dev, max (below 1), min, mean, mode, median

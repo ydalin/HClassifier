@@ -43,7 +43,7 @@ for i in range(len(validation_data)):
     x_val.append(d[0])
     y_val.append(d[1])
     j_val.append(d[2])
-
+print(x)
 x = np.asarray(x).astype('float32')
 y = np.asarray(y).astype(int)
 x_test = np.asarray(x_test).astype('float32')
