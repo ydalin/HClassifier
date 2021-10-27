@@ -143,8 +143,8 @@ def get_stats(joke):
     for similarity in similarities:
         # similarity[similarity < thresh] = 0
         # stats.append(similarity.values.sum())
-        hist = np.nan_to_num(np.histogram(similarity, bins=2, range=(0, 1), density=True)[0]).tolist()
-        if len(hist) == 2 and all(hist) is not None:
+        hist = np.nan_to_num(np.histogram(similarity, bins=5, range=(0, 1), density=True)[0]).tolist()
+        if all(hist) != 0:
             stats.append(hist)
 
     # Create list of dataframe stats for nouns, verbs, and both: standard dev, max (below 1), min, mean, mode, median
