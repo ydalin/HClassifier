@@ -19,8 +19,8 @@ positive_data['funny'] = True
 
 #####
 # REMOVE FOR Real TRAINING!!!!!!!!
-# negative_data = negative_data[:15]
-# positive_data = positive_data[:15]
+# negative_data = negative_data[:500]
+# positive_data = positive_data[:500]
 #####
 
 # Merge and randomize positive and negative data
@@ -46,10 +46,10 @@ def gather_data(data=data_in, test_split=0.2, validation_split=0.05):
     train_data = split_data[:validation_split]
     return train_data, test_data, validation_data
 
-# stats = gather_data()
-#
-# file_name = "stats.pkl"
-#
-# open_file = open(file_name, "wb")
-# pickle.dump(stats, open_file)
-# open_file.close()
+stats = gather_data()
+
+file_name = "stats.pkl"
+
+open_file = open(file_name, "wb")
+pickle.dump(stats, open_file)
+open_file.close()

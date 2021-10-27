@@ -8,12 +8,12 @@ import pickle
 
 print('Gathering data')
 
-# file_name = "stats.pkl"
-# open_file = open(file_name, "rb")
-# stats = pickle.load(open_file)
-# open_file.close()
+file_name = "stats.pkl"
+open_file = open(file_name, "rb")
+stats = pickle.load(open_file)
+open_file.close()
 
-stats = gather_data()
+# stats = gather_data()
 
 print('Data Gathered')
 train_data, test_data, validation_data = stats
