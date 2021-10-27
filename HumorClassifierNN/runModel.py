@@ -55,14 +55,14 @@ print('training')
 model = get_model(x)
 
 model.compile(optimizer='adam', loss='mse', metrics=['mse', 'acc'])
-history = model.fit(x, y, epochs=30)
+history = model.fit(x, y, epochs=10)
 # print('history:')
 # print(history.history)
 print("Evaluate on test data")
 results = model.evaluate(x_test, y_test)
 # print("test loss, mean squared error, test accuracy:", results)
 
-num_predictions = 2000
+num_predictions = len(x_val)
 # make sure num_predictions is < len(x_val)
 num_predictions = num_predictions*int(len(x_val) > num_predictions) + int(len(x_val) <= num_predictions)*len(x_val)
 
@@ -70,30 +70,29 @@ predictions = model.predict(x_val[:num_predictions])
 
 true = []
 false = []
+print(y_val[:5])
 for i in range(len(predictions)):
-    if predictions[i][0] >= 0.5:
+    if predictions[i][0] >= 0.85:
         true.append((predictions[i][0], y_val[i]))
-    elif predictions[i][0] < 0.5:
+    if predictions[i][0] < 0.25:
         false.append((predictions[i][0], y_val[i]))
     # print('prediction: ' + str(predictions[i][0]) + ', correct answer: ' + str(bool(y_val[i])) + ', joke: ' + str(j_val[i]) + '\n')
 
 count_correct_true = 0
 count_correct_false = 0
-print('Predicted True: ' + str(len(true)))
+print('True: ' + str(len(true)))
 for i in range(len(true)):
     # print('prediction: ' + str(true[i][0]) + ', correct answer: ' + str(bool(y_val[i])) + ', joke: ' + str(j_val[i]) + '\n')
     if bool(y_val[i]) == True:
         count_correct_true += 1
 
-print('Predicted False: ' + str(len(false)))
+print('False: ' + str(len(false)))
 for i in range(len(false)):
     # print('prediction: ' + str(false[i][0]) + ', correct answer: ' + str(bool(y_val[i])) + ', joke: ' + str(j_val[i]) + '\n')
     if bool(y_val[i]) == False:
         count_correct_false += 1
 
-print('total correct true: ' + str(count_correct_true) + ', pct correct: ' + str(count_correct_true*100/(len(true)+.0001)))
-print('total correct false: ' + str(count_correct_false) + ', pct correct: ' + str(count_correct_false*100/(len(false)+.0001)))
+print('total correct true: ' + str(count_correct_true) + ', total True: ' + str(len(true)) + ', pct correct: ' + str(count_correct_true*100/(len(true)+.0001)))
+print('total correct false: ' + str(count_correct_false) + ', total False: ' + str(len(false)) + ', pct correct: ' + str(count_correct_false*100/(len(false)+.0001)))
 false_count = np.where(y_val.copy() == False)[0].shape[0]
 true_count = np.where(y_val.copy() == True)[0].shape[0]
-
-print(str(false_count*100/(false_count+true_count)) + '% False Correct, ' + str(true_count*100/(false_count+true_count)) + '% True Correct')
