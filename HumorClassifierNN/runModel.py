@@ -23,7 +23,7 @@ y = []
 j = []
 for i in range(len(train_data)):
     d = train_data[i]
-    x.append(d[0].mean(axis=1)).values
+    x.append(d[0])
     y.append(d[1])
     j.append(d[2])
 x_test = []
@@ -31,7 +31,7 @@ y_test = []
 j_test = []
 for i in range(len(test_data)):
     d = test_data[i]
-    x_test.append(d[0].mean(axis=1))
+    x_test.append(d[0])
     y_test.append(d[1])
     j_test.append(d[2])
 x_val = []
@@ -40,7 +40,7 @@ j_val = []
 
 for i in range(len(validation_data)):
     d = validation_data[i]
-    x_val.append(d[0].mean(axis=1))
+    x_val.append(d[0])
     y_val.append(d[1])
     j_val.append(d[2])
 x = np.asarray(x).astype('float32')
@@ -70,11 +70,14 @@ predictions = model.predict(x_val[:num_predictions])
 true = []
 false = []
 print(predictions[0])
-for i in range(len(predictions)):
-    if np.average(predictions[i]) >= 0.85:
-        true.append((predictions[i][0], y_val[i]))
-    if np.average(predictions[i]) < 0.15:
-        false.append((predictions[i][0], y_val[i]))
+predictions = sorted(predictions, key=lambda x: np.max(x), reverse=True)
+print(predictions[:20])
+
+slice = 5
+for i in range(slice):
+    true.append((predictions[i], y_val[i]))
+for i in range(len(predictions)-slice, len(predictions)):
+    false.append((predictions[i], y_val[i]))
     # print('prediction: ' + str(predictions[i][0]) + ', correct answer: ' + str(bool(y_val[i])) + ', joke: ' + str(j_val[i]) + '\n')
 
 count_correct_true = 0
@@ -102,5 +105,4 @@ true_count = np.where(y_val.copy() == True)[0].shape[0]
 #     print(j_val[i])
 #     print('--------------------\n')
 best_guess_pos = np.where(predictions == np.amax(predictions))[0][0]
-print(best_guess_pos)
 print('best guess for True: ' + str(predictions[best_guess_pos]) + ', actual answer: ' + str(y_val[best_guess_pos]) + ', joke: ' + str(j_val[best_guess_pos]))
