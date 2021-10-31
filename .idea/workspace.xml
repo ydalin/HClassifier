@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="efd1aa41-7f00-4710-b63b-3013469395b0" name="Changes" comment="made histogram bins=5">
+    <list default="true" id="efd1aa41-7f00-4710-b63b-3013469395b0" name="Changes" comment="made histogram bins=3, generated data based on fisrt 500 jokes, for speed">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_20_2021_2_59_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_20_2021_2_59_PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HumorClassifierNN/ClassifierModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/HumorClassifierNN/ClassifierModel.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HumorClassifierNN/gather_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/HumorClassifierNN/gather_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HumorClassifierNN/runModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/HumorClassifierNN/runModel.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HumorClassifierNN/stats.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/HumorClassifierNN/stats.pkl" afterDir="false" />
@@ -43,6 +46,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="SET_USER_NAME_GLOBALLY" value="false" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/HumorClassifierNN/gather_data.py" root0="FORCE_HIGHLIGHTING" />
@@ -184,7 +195,8 @@
       <workItem from="1635020920046" duration="16895000" />
       <workItem from="1635109006249" duration="7107000" />
       <workItem from="1635183950480" duration="3937000" />
-      <workItem from="1635202940393" duration="27904000" />
+      <workItem from="1635202940393" duration="33382000" />
+      <workItem from="1635632001137" duration="9035000" />
     </task>
     <task id="LOCAL-00001" summary="Updating README.md, uploading a blank .py file: Test_NN_1.py">
       <created>1631882624525</created>
@@ -375,7 +387,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635326849377</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="made histogram bins=3, generated data based on fisrt 500 jokes, for speed">
+      <created>1635353891824</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1635353891824</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -414,7 +433,8 @@
     <MESSAGE value="1. Changed bin num to 2 instead of 3&#10;2. Saved data using pickle library" />
     <MESSAGE value="Added more nodes to initial layers" />
     <MESSAGE value="made histogram bins=5" />
-    <option name="LAST_COMMIT_MESSAGE" value="made histogram bins=5" />
+    <MESSAGE value="made histogram bins=3, generated data based on fisrt 500 jokes, for speed" />
+    <option name="LAST_COMMIT_MESSAGE" value="made histogram bins=3, generated data based on fisrt 500 jokes, for speed" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/A_NN_Classifier$word_list_creator.coverage" NAME="word_list_creator Coverage Results" MODIFIED="1634768047177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HumorClassifierNN" />

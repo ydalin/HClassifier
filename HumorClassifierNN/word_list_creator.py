@@ -64,13 +64,13 @@ def get_similarities(word_list, pos):
                         path_diffs.append(r.path_similarity(c))
                         wup_diffs.append(r.wup_similarity(c))
                         lch_diffs.append(r.lch_similarity(c))
-                path_similarity[i, j] = min(path_diffs)
-                wup_similarity[i, j] = min(wup_diffs)
-                lch_similarity[i, j] = min(lch_diffs)
+                path_similarity.iloc[i, j] = min(path_diffs)
+                wup_similarity.iloc[i, j] = min(wup_diffs)
+                lch_similarity.iloc[i, j] = min(lch_diffs)
             else:
-                path_similarity[i, j] = 0.0
-                wup_similarity[i, j] = 0.0
-                lch_similarity[i, j] = 0.0
+                path_similarity.iloc[i, j] = 0.0
+                wup_similarity.iloc[i, j] = 0.0
+                lch_similarity.iloc[i, j] = 0.0
     return path_similarity, wup_similarity, lch_similarity
 
 
