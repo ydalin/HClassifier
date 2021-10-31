@@ -138,7 +138,7 @@ def results(joke):
 def get_stats(joke):
     result = results(joke)
     similarities = result[0]
-    thresh = 0.5
+    thresh = 0
     stats = []
     for similarity in similarities:
         similarity[similarity < thresh] = 0

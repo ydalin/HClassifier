@@ -54,7 +54,7 @@ print('training')
 model = get_model(x)
 
 model.compile(optimizer='adam', loss='mse', metrics=['mse', 'acc'])
-history = model.fit(x, y, epochs=30)
+history = model.fit(x, y, epochs=10)
 # print('history:')
 # print(history.history)
 print("Evaluate on test data")
@@ -69,11 +69,9 @@ predictions = model.predict(x_val[:num_predictions])
 
 true = []
 false = []
-print(predictions[0])
 predictions = sorted(predictions, key=lambda x: np.max(x), reverse=True)
-print(predictions[:20])
 
-slice = 5
+slice = 10
 for i in range(slice):
     true.append((predictions[i], y_val[i]))
 for i in range(len(predictions)-slice, len(predictions)):
