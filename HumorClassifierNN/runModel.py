@@ -43,18 +43,27 @@ for i in range(len(validation_data)):
     x_val.append(d[0])
     y_val.append(d[1])
     j_val.append(d[2])
+
+
 x = np.asarray(x).astype('float32')
 y = np.asarray(y).astype(int)
 x_test = np.asarray(x_test).astype('float32')
 y_test = np.asarray(y_test).astype(int)
 x_val = np.asarray(x_val).astype('float32')
 y_val = np.asarray(y_val).astype(int)
+print('train')
+print(y)
+print('test')
+print(y_test)
+print('validate')
+print(y_val)
+
 
 print('training')
 model = get_model(x)
 
-model.compile(optimizer='adam', loss='mse', metrics=['mse', 'acc'])
-history = model.fit(x, y, epochs=10)
+model.compile(optimizer='sgd', loss='binary_crossentropy', metrics=['mse', 'acc'])
+history = model.fit(x, y, epochs=40)
 # print('history:')
 # print(history.history)
 print("Evaluate on test data")
@@ -67,29 +76,32 @@ num_predictions = num_predictions*int(len(x_val) > num_predictions) + int(len(x_
 
 predictions = model.predict(x_val[:num_predictions])
 
+predictions = np.mean(predictions, axis=1)
+
 true = []
 false = []
-predictions = sorted(predictions, key=lambda x: np.max(x), reverse=True)
 
-slice = 10
-for i in range(slice):
-    true.append((predictions[i], y_val[i]))
-for i in range(len(predictions)-slice, len(predictions)):
-    false.append((predictions[i], y_val[i]))
+slice = 5
+
+for i in range(len(predictions)):
+    if predictions[i] > .6:
+        true.append((predictions[i], y_val[i], j_val[i]))
+for i in range(len(predictions)):
+    if predictions[i] < .4:
+        false.append((predictions[i], y_val[i], j_val[i]))
     # print('prediction: ' + str(predictions[i][0]) + ', correct answer: ' + str(bool(y_val[i])) + ', joke: ' + str(j_val[i]) + '\n')
-
 count_correct_true = 0
 count_correct_false = 0
 print('True: ' + str(len(true)))
 for i in range(len(true)):
     # print('prediction: ' + str(true[i][0]) + ', correct answer: ' + str(bool(y_val[i])) + ', joke: ' + str(j_val[i]) + '\n')
-    if bool(y_val[i]) == True:
+    if bool(true[i][1]) == True:
         count_correct_true += 1
 
 print('False: ' + str(len(false)))
 for i in range(len(false)):
     # print('prediction: ' + str(false[i][0]) + ', correct answer: ' + str(bool(y_val[i])) + ', joke: ' + str(j_val[i]) + '\n')
-    if bool(y_val[i]) == False:
+    if bool(false[i][1]) == False:
         count_correct_false += 1
 
 print('total correct true: ' + str(count_correct_true) + ', total True: ' + str(len(true)) + ', pct correct: ' + str(count_correct_true*100/(len(true)+.0001)))
