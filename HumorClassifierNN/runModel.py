@@ -84,10 +84,10 @@ false = []
 slice = 5
 
 for i in range(len(predictions)):
-    if predictions[i] > .6:
+    if predictions[i] > .625:
         true.append((predictions[i], y_val[i], j_val[i]))
 for i in range(len(predictions)):
-    if predictions[i] < .4:
+    if predictions[i] < .35:
         false.append((predictions[i], y_val[i], j_val[i]))
     # print('prediction: ' + str(predictions[i][0]) + ', correct answer: ' + str(bool(y_val[i])) + ', joke: ' + str(j_val[i]) + '\n')
 count_correct_true = 0
@@ -109,10 +109,10 @@ print('total correct false: ' + str(count_correct_false) + ', total False: ' + s
 false_count = np.where(y_val.copy() == False)[0].shape[0]
 true_count = np.where(y_val.copy() == True)[0].shape[0]
 
-# for i in range(predictions.shape[0]):
-#     print(predictions[i])
-#     print(y_val[i])
-#     print(j_val[i])
-#     print('--------------------\n')
-best_guess_pos = np.where(predictions == np.amax(predictions))[0][0]
-print('best guess for True: ' + str(predictions[best_guess_pos]) + ', actual answer: ' + str(y_val[best_guess_pos]) + ', joke: ' + str(j_val[best_guess_pos]))
+for i in range(len(true)):
+    print(true[i][0])
+    print(true[i][1])
+    print(true[i][2])
+    print('--------------------\n')
+best_guess_True = max(true, key=lambda x: x[1])
+print('best guess for True: ' + str(best_guess_True[0]) + ', actual answer: ' + str(best_guess_True[1]) + ', joke: ' + str(best_guess_True[2]))
