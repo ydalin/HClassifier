@@ -59,7 +59,7 @@ model = get_model(x)
 model.compile(optimizer='sgd', loss='binary_crossentropy', metrics=['acc', tf.keras.metrics.SparseCategoricalAccuracy(
     name="sparse_categorical_accuracy", dtype=None
 )])
-history = model.fit(x, y, epochs=200)
+history = model.fit(x, y, epochs=250)
 
 # Plot training & validation accuracy values
 plt.plot(history.history['acc'])
@@ -89,7 +89,7 @@ for i in range(len(predictions)):
 sorted_predictions = sorted(sorted_predictions, key=lambda z: z[0])
 
 slice = len(sorted_predictions)//2
-slice = 15
+slice = 5
 
 true = sorted_predictions[len(sorted_predictions)-slice:len(sorted_predictions)]
 false = sorted_predictions[:slice]
