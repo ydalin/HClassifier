@@ -56,7 +56,7 @@ print('training')
 model = get_model(x)
 
 model.compile(optimizer='sgd', loss='binary_crossentropy', metrics=['mse', 'acc'])
-history = model.fit(x, y, epochs=500)
+history = model.fit(x, y, epochs=10000)
 # print('history:')
 # print(history.history)
 print("Evaluate on test data")
@@ -79,6 +79,7 @@ for i in range(len(predictions)):
 sorted_predictions = sorted(sorted_predictions, key=lambda z: z[0])
 
 slice = len(sorted_predictions)//2
+slice = 20
 
 true = sorted_predictions[len(sorted_predictions)-slice:len(sorted_predictions)]
 false = sorted_predictions[:slice]
@@ -97,13 +98,8 @@ for i in range(len(false)):
     if bool(false[i][1]) == False:
         count_correct_false += 1
 
-print('total correct true: ' + str(count_correct_true) + ', total True: ' + str(len(true)) + ', pct correct: ' + str(count_correct_true*100/(len(true)+.0001)))
-print('total correct false: ' + str(count_correct_false) + ', total False: ' + str(len(false)) + ', pct correct: ' + str(count_correct_false*100/(len(false)+.0001)))
+print('total correct true: ' + str(count_correct_true) + ', total True: ' + str(len(true)) + ', pct correct: ' + str(count_correct_true*100/(len(true))))
+print('total correct false: ' + str(count_correct_false) + ', total False: ' + str(len(false)) + ', pct correct: ' + str(count_correct_false*100/(len(false))))
 
-# for i in range(len(true)):
-#     print(true[i][0])
-#     print(true[i][1])
-#     print(true[i][2])
-#     print('--------------------\n')
-best_guess_True = max(true, key=lambda x: x[1])
+best_guess_True = max(true, key=lambda x: x[0])
 print('best guess for True: ' + str(best_guess_True[0]) + ', actual answer: ' + str(best_guess_True[1]) + ', joke: ' + str(best_guess_True[2]))
