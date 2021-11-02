@@ -56,7 +56,7 @@ y_val = np.asarray(y_val).astype(int)
 print('training')
 model = get_model(x)
 
-model.compile(optimizer='sgd', loss='binary_crossentropy', metrics=['mse', 'acc', tf.keras.metrics.SparseCategoricalAccuracy(
+model.compile(optimizer='sgd', loss='binary_crossentropy', metrics=['acc', tf.keras.metrics.SparseCategoricalAccuracy(
     name="sparse_categorical_accuracy", dtype=None
 )])
 history = model.fit(x, y, epochs=200)
