@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="efd1aa41-7f00-4710-b63b-3013469395b0" name="Changes" comment="1. fixed runModel.py to show t/g percentages correctly&#10;2. Histogram with 3 buckets&#10;3. Basing the result on the mean of the 3 predictions, &gt; .6 is True, &lt;.4 is False. Result: 100% True correct, 73% False correct">
-      <change beforePath="$PROJECT_DIR$/HumorClassifierNN/ClassifierModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/HumorClassifierNN/ClassifierModel.py" afterDir="false" />
+    <list default="true" id="efd1aa41-7f00-4710-b63b-3013469395b0" name="Changes" comment="Changed up hyperparameters, basing the result on the mean of the 3 predictions, &gt; .625 is True, &lt;.35 is False. Result: 100% True correct, 93% False correct">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HumorClassifierNN/runModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/HumorClassifierNN/runModel.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -191,7 +191,7 @@
       <workItem from="1635183950480" duration="3937000" />
       <workItem from="1635202940393" duration="33382000" />
       <workItem from="1635632001137" duration="22680000" />
-      <workItem from="1635787350334" duration="7612000" />
+      <workItem from="1635787350334" duration="11532000" />
     </task>
     <task id="LOCAL-00001" summary="Updating README.md, uploading a blank .py file: Test_NN_1.py">
       <created>1631882624525</created>
@@ -417,7 +417,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635801796621</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Changed up hyperparameters, basing the result on the mean of the 3 predictions, &gt; .625 is True, &lt;.35 is False. Result: 100% True correct, 93% False correct">
+      <created>1635803208805</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1635803208805</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -436,7 +443,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updating README.md, uploading a blank .py file: Test_NN_1.py" />
     <MESSAGE value="Word list creator: can parse jokes into nouns and verbs, then output similarity dataframes" />
     <MESSAGE value="Updating README.md (formatting)" />
     <MESSAGE value="Model runs! Accuracy = 0, though :(&#10;&#10;https://www.tensorflow.org/api_docs/python/tf/keras/Sequential" />
@@ -461,7 +467,8 @@
     <MESSAGE value="changed back to original sum of thresholded similarity values" />
     <MESSAGE value="removed threshold (threshold = 0)" />
     <MESSAGE value="1. fixed runModel.py to show t/g percentages correctly&#10;2. Histogram with 3 buckets&#10;3. Basing the result on the mean of the 3 predictions, &gt; .6 is True, &lt;.4 is False. Result: 100% True correct, 73% False correct" />
-    <option name="LAST_COMMIT_MESSAGE" value="1. fixed runModel.py to show t/g percentages correctly&#10;2. Histogram with 3 buckets&#10;3. Basing the result on the mean of the 3 predictions, &gt; .6 is True, &lt;.4 is False. Result: 100% True correct, 73% False correct" />
+    <MESSAGE value="Changed up hyperparameters, basing the result on the mean of the 3 predictions, &gt; .625 is True, &lt;.35 is False. Result: 100% True correct, 93% False correct" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed up hyperparameters, basing the result on the mean of the 3 predictions, &gt; .625 is True, &lt;.35 is False. Result: 100% True correct, 93% False correct" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/A_NN_Classifier$word_list_creator.coverage" NAME="word_list_creator Coverage Results" MODIFIED="1634768047177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HumorClassifierNN" />

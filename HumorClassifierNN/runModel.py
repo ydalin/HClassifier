@@ -51,19 +51,12 @@ x_test = np.asarray(x_test).astype('float32')
 y_test = np.asarray(y_test).astype(int)
 x_val = np.asarray(x_val).astype('float32')
 y_val = np.asarray(y_val).astype(int)
-print('train')
-print(y)
-print('test')
-print(y_test)
-print('validate')
-print(y_val)
-
 
 print('training')
 model = get_model(x)
 
 model.compile(optimizer='sgd', loss='binary_crossentropy', metrics=['mse', 'acc'])
-history = model.fit(x, y, epochs=40)
+history = model.fit(x, y, epochs=500)
 # print('history:')
 # print(history.history)
 print("Evaluate on test data")
@@ -78,41 +71,39 @@ predictions = model.predict(x_val[:num_predictions])
 
 predictions = np.mean(predictions, axis=1)
 
-true = []
-false = []
-
-slice = 5
+sorted_predictions = []
 
 for i in range(len(predictions)):
-    if predictions[i] > .625:
-        true.append((predictions[i], y_val[i], j_val[i]))
-for i in range(len(predictions)):
-    if predictions[i] < .35:
-        false.append((predictions[i], y_val[i], j_val[i]))
-    # print('prediction: ' + str(predictions[i][0]) + ', correct answer: ' + str(bool(y_val[i])) + ', joke: ' + str(j_val[i]) + '\n')
+    sorted_predictions.append((predictions[i], y_val[i], j_val[i]))
+
+sorted_predictions = sorted(sorted_predictions, key=lambda z: z[0])
+
+slice = len(sorted_predictions)//2
+
+true = sorted_predictions[len(sorted_predictions)-slice:len(sorted_predictions)]
+false = sorted_predictions[:slice]
+
 count_correct_true = 0
-count_correct_false = 0
 print('True: ' + str(len(true)))
 for i in range(len(true)):
-    # print('prediction: ' + str(true[i][0]) + ', correct answer: ' + str(bool(y_val[i])) + ', joke: ' + str(j_val[i]) + '\n')
+    # print('prediction: ' + str(true[i][0]) + ', correct answer: ' + str(bool(true[i])) + ', joke: ' + str(true[i]) + '\n')
     if bool(true[i][1]) == True:
         count_correct_true += 1
 
+count_correct_false = 0
 print('False: ' + str(len(false)))
 for i in range(len(false)):
-    # print('prediction: ' + str(false[i][0]) + ', correct answer: ' + str(bool(y_val[i])) + ', joke: ' + str(j_val[i]) + '\n')
+    # print('prediction: ' + str(false[i][0]) + ', correct answer: ' + str(bool(false[i])) + ', joke: ' + str(false[i]) + '\n')
     if bool(false[i][1]) == False:
         count_correct_false += 1
 
 print('total correct true: ' + str(count_correct_true) + ', total True: ' + str(len(true)) + ', pct correct: ' + str(count_correct_true*100/(len(true)+.0001)))
 print('total correct false: ' + str(count_correct_false) + ', total False: ' + str(len(false)) + ', pct correct: ' + str(count_correct_false*100/(len(false)+.0001)))
-false_count = np.where(y_val.copy() == False)[0].shape[0]
-true_count = np.where(y_val.copy() == True)[0].shape[0]
 
-for i in range(len(true)):
-    print(true[i][0])
-    print(true[i][1])
-    print(true[i][2])
-    print('--------------------\n')
+# for i in range(len(true)):
+#     print(true[i][0])
+#     print(true[i][1])
+#     print(true[i][2])
+#     print('--------------------\n')
 best_guess_True = max(true, key=lambda x: x[1])
 print('best guess for True: ' + str(best_guess_True[0]) + ', actual answer: ' + str(best_guess_True[1]) + ', joke: ' + str(best_guess_True[2]))
