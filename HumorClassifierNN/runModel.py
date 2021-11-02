@@ -5,6 +5,7 @@ from ClassifierModel import get_model
 import tensorflow as tf
 # from keras.callbacks import ReduceLROnPlateau
 import pickle
+from matplotlib import pyplot as plt
 
 print('Gathering data')
 
@@ -58,7 +59,7 @@ model = get_model(x)
 model.compile(optimizer='sgd', loss='binary_crossentropy', metrics=['mse', 'acc', tf.keras.metrics.SparseCategoricalAccuracy(
     name="sparse_categorical_accuracy", dtype=None
 )])
-history = model.fit(x, y, epochs=10000)
+history = model.fit(x, y, epochs=200)
 
 # Plot training & validation accuracy values
 plt.plot(history.history['acc'])
@@ -88,7 +89,7 @@ for i in range(len(predictions)):
 sorted_predictions = sorted(sorted_predictions, key=lambda z: z[0])
 
 slice = len(sorted_predictions)//2
-slice = 20
+slice = 15
 
 true = sorted_predictions[len(sorted_predictions)-slice:len(sorted_predictions)]
 false = sorted_predictions[:slice]

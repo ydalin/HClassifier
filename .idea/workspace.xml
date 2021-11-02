@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="efd1aa41-7f00-4710-b63b-3013469395b0" name="Changes" comment="1. Changed to 10000 epochs&#10;2. Now prints percentage of top half (True) and bottom half (False) of sorted predictions">
+    <list default="true" id="efd1aa41-7f00-4710-b63b-3013469395b0" name="Changes" comment="1. Changed to 10000 epochs&#10;2. Now prints percentage of top half (True) and bottom half (False) of sorted predictions&#10;&#10;result:&#10;total correct true: 17, total True: 20, pct correct: 85.0&#10;total correct false: 14, total False: 20, pct correct: 70.0&#10;best guess for True: [0.7730611], actual answer: 1, joke: what is the difference between a nicely dressed man on a tricycle and a poorly dressed man on a bicycle a tire">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HumorClassifierNN/gather_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/HumorClassifierNN/gather_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HumorClassifierNN/ClassifierModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/HumorClassifierNN/ClassifierModel.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HumorClassifierNN/runModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/HumorClassifierNN/runModel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HumorClassifierNN/stats.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/HumorClassifierNN/stats.pkl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +193,7 @@
       <workItem from="1635183950480" duration="3937000" />
       <workItem from="1635202940393" duration="33382000" />
       <workItem from="1635632001137" duration="22680000" />
-      <workItem from="1635787350334" duration="18054000" />
+      <workItem from="1635787350334" duration="19885000" />
     </task>
     <task id="LOCAL-00001" summary="Updating README.md, uploading a blank .py file: Test_NN_1.py">
       <created>1631882624525</created>
@@ -439,7 +440,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635835031128</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="1. Changed to 10000 epochs&#10;2. Now prints percentage of top half (True) and bottom half (False) of sorted predictions&#10;&#10;result:&#10;total correct true: 17, total True: 20, pct correct: 85.0&#10;total correct false: 14, total False: 20, pct correct: 70.0&#10;best guess for True: [0.7730611], actual answer: 1, joke: what is the difference between a nicely dressed man on a tricycle and a poorly dressed man on a bicycle a tire">
+      <created>1635840953890</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1635840953890</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -458,7 +466,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Model runs! Accuracy = 0, though :(&#10;&#10;https://www.tensorflow.org/api_docs/python/tf/keras/Sequential" />
     <MESSAGE value="Set model to only look at Verbs and Nouns.&#10;Now Model has some results, but no better than random chance." />
     <MESSAGE value="Fixed bug where word_list_creator.py would word multiple times, once for each synset (meaning) of the word.&#10;Now it adds it once." />
     <MESSAGE value="Changes:&#10;1. Changed parameters in callback 'ReduceLROnPlateau' to reduce learning rate more aggressively&#10;2. Added MaxPooling1D to model gets maximum value from previous layer" />
@@ -483,7 +490,8 @@
     <MESSAGE value="Changed up hyperparameters, basing the result on the mean of the 3 predictions, &gt; .625 is True, &lt;.35 is False. Result: 100% True correct, 93% False correct" />
     <MESSAGE value="1. Changed to 500 epochs&#10;2. Now prints percentage of top half (True) and bottom half (False) of sorted predictions" />
     <MESSAGE value="1. Changed to 10000 epochs&#10;2. Now prints percentage of top half (True) and bottom half (False) of sorted predictions" />
-    <option name="LAST_COMMIT_MESSAGE" value="1. Changed to 10000 epochs&#10;2. Now prints percentage of top half (True) and bottom half (False) of sorted predictions" />
+    <MESSAGE value="1. Changed to 10000 epochs&#10;2. Now prints percentage of top half (True) and bottom half (False) of sorted predictions&#10;&#10;result:&#10;total correct true: 17, total True: 20, pct correct: 85.0&#10;total correct false: 14, total False: 20, pct correct: 70.0&#10;best guess for True: [0.7730611], actual answer: 1, joke: what is the difference between a nicely dressed man on a tricycle and a poorly dressed man on a bicycle a tire" />
+    <option name="LAST_COMMIT_MESSAGE" value="1. Changed to 10000 epochs&#10;2. Now prints percentage of top half (True) and bottom half (False) of sorted predictions&#10;&#10;result:&#10;total correct true: 17, total True: 20, pct correct: 85.0&#10;total correct false: 14, total False: 20, pct correct: 70.0&#10;best guess for True: [0.7730611], actual answer: 1, joke: what is the difference between a nicely dressed man on a tricycle and a poorly dressed man on a bicycle a tire" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/A_NN_Classifier$word_list_creator.coverage" NAME="word_list_creator Coverage Results" MODIFIED="1634768047177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HumorClassifierNN" />
