@@ -55,13 +55,22 @@ y_val = np.asarray(y_val).astype(int)
 print('training')
 model = get_model(x)
 
-model.compile(optimizer='sgd', loss='binary_crossentropy', metrics=['mse', 'acc'])
+model.compile(optimizer='sgd', loss='binary_crossentropy', metrics=['mse', 'acc', tf.keras.metrics.SparseCategoricalAccuracy(
+    name="sparse_categorical_accuracy", dtype=None
+)])
 history = model.fit(x, y, epochs=10000)
-# print('history:')
-# print(history.history)
+
+# Plot training & validation accuracy values
+plt.plot(history.history['acc'])
+plt.plot(history.history['sparse_categorical_accuracy'])
+plt.title('Model accuracy')
+plt.ylabel('Accuracy')
+plt.xlabel('Epoch')
+plt.legend(['Train', 'Test'], loc='upper left')
+plt.show()
 print("Evaluate on test data")
 results = model.evaluate(x_test, y_test)
-# print("test loss, mean squared error, test accuracy:", results)
+print("test loss, mean squared error, test accuracy: ", results)
 
 num_predictions = len(x_val)
 # make sure num_predictions is < len(x_val)

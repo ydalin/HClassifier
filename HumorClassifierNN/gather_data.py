@@ -27,7 +27,7 @@ positive_data['funny'] = True
 data_in = pd.concat([negative_data, positive_data]).sample(frac=1)
 
 
-def gather_data(data=data_in, test_split=0.3, validation_split=0.2):
+def gather_data(data=data_in, test_split=0.0003, validation_split=0.1):
     joke_stats = []
     present_gathered = 0
     print(str(0) + '% data gathered')
