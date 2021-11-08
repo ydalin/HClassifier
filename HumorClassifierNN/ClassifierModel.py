@@ -13,9 +13,5 @@ def get_model(data):
     model.add(tf.keras.layers.Dense(8, input_shape=(data.shape[1], data.shape[2], ), activation='relu'))
     model.add(tf.keras.layers.Dense(8))
     model.add(tf.keras.layers.Dense(8))
-    # model.add(tf.keras.layers.Dense(800, activation='relu'))
-    # model.add(tf.keras.layers.Dense(800, activation='relu'))
-    # model.add(tf.keras.layers.Dense(800, activation='relu'))
-    # model.add(tf.keras.layers.Dense(800, activation='relu'))
     model.add(tf.keras.layers.Dense(1, activation='sigmoid'))
     return model
