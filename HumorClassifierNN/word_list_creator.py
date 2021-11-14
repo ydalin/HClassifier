@@ -26,13 +26,14 @@ def parse_joke(joke):
 
 
 def get_similarities(word_list):
-    path_similarity = pd.DataFrame(index=word_list, columns=word_list)
-    wup_similarity = pd.DataFrame(index=word_list, columns=word_list)
-    lch_similarity = pd.DataFrame(index=word_list, columns=word_list)
-    for i in range(len(wup_similarity.index.to_numpy())):
-        row_synset = wn.synsets(wup_similarity.copy().index.values[i], pos=wn.NOUN)
-        for j in range(len(wup_similarity.columns.to_numpy())):
-            similarity = wup_similarity.copy().columns.values[j]
+    list_len = len(word_list)
+    path_similarity = np.zeros((list_len, list_len), np.float32)
+    wup_similarity = np.zeros((list_len, list_len), np.float32)
+    lch_similarity = np.zeros((list_len, list_len), np.float32)
+    for i in range(len(word_list)):
+        row_synset = wn.synsets(word_list[i], pos=wn.NOUN)
+        for j in range(len(word_list)):
+            similarity = word_list[j]
             if type(similarity) is str:
                 column_synset = wn.synsets(similarity, pos=wn.NOUN)
                 path_diffs = []
@@ -43,13 +44,9 @@ def get_similarities(word_list):
                         path_diffs.append(r.path_similarity(c))
                         wup_diffs.append(r.wup_similarity(c))
                         lch_diffs.append(r.lch_similarity(c))
-                path_similarity.iloc[i, j] = min(path_diffs)
-                wup_similarity.iloc[i, j] = min(wup_diffs)
-                lch_similarity.iloc[i, j] = min(lch_diffs)
-            else:
-                path_similarity.iloc[i, j] = 0.0
-                wup_similarity.iloc[i, j] = 0.0
-                lch_similarity.iloc[i, j] = 0.0
+                path_similarity[i, j] = min(path_diffs)
+                wup_similarity[i, j] = min(wup_diffs)
+                lch_similarity[i, j] = min(lch_diffs)
     return path_similarity, wup_similarity, lch_similarity
 
 
@@ -61,7 +58,6 @@ def get_stats(joke):
     for similarity in similarities:
         similarity[similarity < thresh] = 0
         hist = np.nan_to_num(np.histogram(similarity, bins=3, range=(0, 1), density=True)[0]).tolist()
-        if len(hist) == 3 and all(hist) is not None:
-            stats.append(hist)
+        stats.append(hist)
     return stats, joke
 

@@ -19,15 +19,15 @@ positive_data['funny'] = True
 
 #####
 # REMOVE FOR Real TRAINING!!!!!!!!
-# negative_data = negative_data[:5]
-# positive_data = positive_data[:5]
+negative_data = negative_data[:100]
+positive_data = positive_data[:100]
 #####
 
 # Merge and randomize positive and negative data
 data_in = pd.concat([negative_data, positive_data]).sample(frac=1)
 
 
-def gather_data(data=data_in, test_split=0.0003, validation_split=0.1):
+def gather_data(data=data_in, validation_split=0.1):
     joke_stats = []
     present_gathered = 0
     print(str(0) + '% data gathered')
@@ -38,13 +38,10 @@ def gather_data(data=data_in, test_split=0.0003, validation_split=0.1):
         stats = get_stats(data.iloc[i, 0])
         joke_stats.append((stats[0], data.iloc[i, 1], data.iloc[i, 0], stats[1]))
     split_data = joke_stats
-    test_split = int(len(data) - test_split * len(data))
-    test_data = split_data[test_split:]
-    split_data = split_data[:test_split]
     validation_split = int(len(split_data) - validation_split * len(split_data))
     validation_data = split_data[validation_split:]
     train_data = split_data[:validation_split]
-    return train_data, test_data, validation_data
+    return train_data, validation_data
 
 stats = gather_data()
 print('Data Gathered!')

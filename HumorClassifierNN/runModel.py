@@ -17,7 +17,7 @@ open_file.close()
 # stats = gather_data()
 
 print('Data Gathered')
-train_data, test_data, validation_data = stats
+train_data, validation_data = stats
 
 x = []
 y = []
@@ -27,18 +27,10 @@ for i in range(len(train_data)):
     x.append(d[0])
     y.append(d[1])
     j.append(d[2])
-x_test = []
-y_test = []
-j_test = []
-for i in range(len(test_data)):
-    d = test_data[i]
-    x_test.append(d[0])
-    y_test.append(d[1])
-    j_test.append(d[2])
+
 x_val = []
 y_val = []
 j_val = []
-
 for i in range(len(validation_data)):
     d = validation_data[i]
     x_val.append(d[0])
@@ -48,8 +40,6 @@ for i in range(len(validation_data)):
 
 x = np.asarray(x).astype('float32')
 y = np.asarray(y).astype(int)
-x_test = np.asarray(x_test).astype('float32')
-y_test = np.asarray(y_test).astype(int)
 x_val = np.asarray(x_val).astype('float32')
 y_val = np.asarray(y_val).astype(int)
 
@@ -70,7 +60,7 @@ plt.xlabel('Epoch')
 plt.legend(['Train', 'Test'], loc='upper left')
 plt.show()
 print("Evaluate on test data")
-results = model.evaluate(x_test, y_test)
+results = model.evaluate(x_val, y_val)
 print("test loss, mean squared error, test accuracy: ", results)
 
 num_predictions = len(x_val)
