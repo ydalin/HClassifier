@@ -19,8 +19,8 @@ positive_data['funny'] = True
 
 #####
 # REMOVE FOR Real TRAINING!!!!!!!!
-negative_data = negative_data[:100]
-positive_data = positive_data[:100]
+# negative_data = negative_data[:100]
+# positive_data = positive_data[:100]
 #####
 
 # Merge and randomize positive and negative data
@@ -30,11 +30,11 @@ data_in = pd.concat([negative_data, positive_data]).sample(frac=1)
 def gather_data(data=data_in, validation_split=0.1):
     joke_stats = []
     present_gathered = 0
-    print(str(0) + '% data gathered')
+    print(str(0) + '% Data processed')
     for i in range(len(data)):
         if (i*100/len(data))-present_gathered >= 1:
             present_gathered = int(i*100/len(data))
-            print(str(int(i*100/len(data))) + '% data gathered')
+            print(str(int(i*100/len(data))) + '% Data processed')
         stats = get_stats(data.iloc[i, 0])
         joke_stats.append((stats[0], data.iloc[i, 1], data.iloc[i, 0], stats[1]))
     split_data = joke_stats
@@ -44,7 +44,7 @@ def gather_data(data=data_in, validation_split=0.1):
     return train_data, validation_data
 
 stats = gather_data()
-print('Data Gathered!')
+print('Data fully processed!')
 file_name = "stats.pkl"
 
 open_file = open(file_name, "wb")
