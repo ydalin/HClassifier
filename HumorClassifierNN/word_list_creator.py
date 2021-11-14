@@ -1,7 +1,6 @@
 import nltk
 from nltk.corpus import wordnet as wn
 from nltk import sent_tokenize, word_tokenize, pos_tag
-import pandas as pd
 import numpy as np
 import csv
 import math
