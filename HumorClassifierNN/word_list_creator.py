@@ -55,7 +55,7 @@ def get_stats(joke):
     thresh = 0.5
     stats = []
     for similarity in similarities:
-        similarity[similarity < thresh] = 0
+        # similarity[similarity < thresh] = 0
         hist = np.nan_to_num(np.histogram(similarity, bins=3, range=(0, 1), density=True)[0]).tolist()
         stats.append(hist)
     return stats, joke

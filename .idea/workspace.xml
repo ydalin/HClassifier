@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="efd1aa41-7f00-4710-b63b-3013469395b0" name="Changes" comment="converted pandas dataframes to numpy 3x3 arrays">
+    <list default="true" id="efd1aa41-7f00-4710-b63b-3013469395b0" name="Changes" comment="converted pandas dataframes to numpy 3x3 arrays&#10;Edited the model layers">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HumorClassifierNN/ClassifierModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/HumorClassifierNN/ClassifierModel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HumorClassifierNN/gather_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/HumorClassifierNN/gather_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HumorClassifierNN/runModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/HumorClassifierNN/runModel.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HumorClassifierNN/stats.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/HumorClassifierNN/stats.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HumorClassifierNN/word_list_creator.py" beforeDir="false" afterPath="$PROJECT_DIR$/HumorClassifierNN/word_list_creator.py" afterDir="false" />
     </list>
@@ -199,7 +197,7 @@
       <workItem from="1636333091852" duration="31000" />
       <workItem from="1636333442172" duration="3554000" />
       <workItem from="1636823809485" duration="53000" />
-      <workItem from="1636913657469" duration="7398000" />
+      <workItem from="1636913657469" duration="9450000" />
     </task>
     <task id="LOCAL-00001" summary="Updating README.md, uploading a blank .py file: Test_NN_1.py">
       <created>1631882624525</created>
@@ -495,7 +493,21 @@
       <option name="project" value="LOCAL" />
       <updated>1636915539328</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="converted pandas dataframes to numpy 3x3 arrays&#10;Edited the model">
+      <created>1636921152385</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1636921152385</updated>
+    </task>
+    <task id="LOCAL-00044" summary="converted pandas dataframes to numpy 3x3 arrays&#10;Edited the model layers">
+      <created>1636921171309</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1636921171309</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -514,8 +526,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Changes:&#10;Removed ReduceLROnPlateau callback. Not needed, once I added an input layer." />
-    <MESSAGE value="Added Bidirectional layer" />
     <MESSAGE value="1. Trying only wup similarity&#10;2. Trying only Nouns stats and Verbs stats, not also joined Nouns and Verbs stats&#10;3. Adding differences between max and min difference between each pair of synsets, not differences b/w all synsets" />
     <MESSAGE value="1. Trying only wup similarity&#10;2. Trying only Nouns stats and Verbs stats, not also joined Nouns and Verbs stats&#10;3. Adding differences between max and min difference between each pair of synsets, not differences b/w all synsets&#10;4. Only add max of stat, nothing else" />
     <MESSAGE value="1. Changed to add min similarity (least amount of similarity) of synsets&#10;2. Added threshold to remove similarities below 0.5 similarity&#10;3. Made stat sum of all similarities in a joke" />
@@ -539,7 +549,9 @@
     <MESSAGE value="1. 250 epochs&#10;2. Edited Model layers&#10;&#10;great results - lets keep this! 100% correct for top 5" />
     <MESSAGE value="Cleaning up the code, adding comments" />
     <MESSAGE value="converted pandas dataframes to numpy 3x3 arrays" />
-    <option name="LAST_COMMIT_MESSAGE" value="converted pandas dataframes to numpy 3x3 arrays" />
+    <MESSAGE value="converted pandas dataframes to numpy 3x3 arrays&#10;Edited the model" />
+    <MESSAGE value="converted pandas dataframes to numpy 3x3 arrays&#10;Edited the model layers" />
+    <option name="LAST_COMMIT_MESSAGE" value="converted pandas dataframes to numpy 3x3 arrays&#10;Edited the model layers" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/A_NN_Classifier$word_list_creator.coverage" NAME="word_list_creator Coverage Results" MODIFIED="1634768047177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HumorClassifierNN" />
