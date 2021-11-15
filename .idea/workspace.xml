@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="efd1aa41-7f00-4710-b63b-3013469395b0" name="Changes" comment="converted pandas dataframes to numpy 3x3 arrays&#10;Edited the model layers" />
+    <list default="true" id="efd1aa41-7f00-4710-b63b-3013469395b0" name="Changes" comment="converted pandas dataframes to numpy 3x3 arrays&#10;Edited the model layers">
+      <change afterPath="$PROJECT_DIR$/HumorClassifierNN/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HumorClassifierNN/stats_model/saved_model_stats.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/final/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/final/saved_model_stats.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/final/simple_generator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HumorClassifierNN/stats_model/saved_model.pb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/HumorClassifierNN/simple_generator.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -66,7 +75,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/final" />
     <property name="settings.editor.selected.configurable" value="PyConsoleConfigurable.Python Console" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -79,9 +88,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\super\PycharmProjects\A-NN_Classifier\final" />
       <recent name="C:\Users\super\PycharmProjects\A-NN_Classifier1\HumorClassifierNN" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\super\PycharmProjects\A-NN_Classifier\HumorClassifierNN" />
       <recent name="D:\Dropbox\A-NN_Classifier" />
     </key>
   </component>
@@ -193,7 +204,7 @@
       <workItem from="1636333091852" duration="31000" />
       <workItem from="1636333442172" duration="3554000" />
       <workItem from="1636823809485" duration="53000" />
-      <workItem from="1636913657469" duration="10434000" />
+      <workItem from="1636913657469" duration="12401000" />
     </task>
     <task id="LOCAL-00001" summary="Updating README.md, uploading a blank .py file: Test_NN_1.py">
       <created>1631882624525</created>
@@ -517,7 +528,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637013701495</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="converted pandas dataframes to numpy 3x3 arrays&#10;Edited the model layers">
+      <created>1637013745704</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1637013745704</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
