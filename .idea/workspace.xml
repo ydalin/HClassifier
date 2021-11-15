@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="efd1aa41-7f00-4710-b63b-3013469395b0" name="Changes" comment="converted pandas dataframes to numpy 3x3 arrays&#10;Edited the model layers">
-      <change afterPath="$PROJECT_DIR$/HumorClassifierNN/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HumorClassifierNN/stats_model/saved_model_stats.pb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/final/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/final/saved_model_stats.pb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/final/simple_generator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HumorClassifierNN/stats_model/saved_model.pb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/simple_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/HumorClassifierNN/simple_generator.py" afterDir="false" />
-    </list>
+    <list default="true" id="efd1aa41-7f00-4710-b63b-3013469395b0" name="Changes" comment="added 'Final' folder, with saved stats model, jokes generator, and main.py to tie it together" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -204,7 +195,7 @@
       <workItem from="1636333091852" duration="31000" />
       <workItem from="1636333442172" duration="3554000" />
       <workItem from="1636823809485" duration="53000" />
-      <workItem from="1636913657469" duration="12401000" />
+      <workItem from="1636913657469" duration="12972000" />
     </task>
     <task id="LOCAL-00001" summary="Updating README.md, uploading a blank .py file: Test_NN_1.py">
       <created>1631882624525</created>
@@ -535,7 +526,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637013745704</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="added 'Final' folder, with saved stats model, jokes generator, and main.py to tie it together">
+      <created>1637016394989</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1637016394989</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -554,7 +552,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="1. Trying only wup similarity&#10;2. Trying only Nouns stats and Verbs stats, not also joined Nouns and Verbs stats&#10;3. Adding differences between max and min difference between each pair of synsets, not differences b/w all synsets" />
     <MESSAGE value="1. Trying only wup similarity&#10;2. Trying only Nouns stats and Verbs stats, not also joined Nouns and Verbs stats&#10;3. Adding differences between max and min difference between each pair of synsets, not differences b/w all synsets&#10;4. Only add max of stat, nothing else" />
     <MESSAGE value="1. Changed to add min similarity (least amount of similarity) of synsets&#10;2. Added threshold to remove similarities below 0.5 similarity&#10;3. Made stat sum of all similarities in a joke" />
     <MESSAGE value="Edited Model and statistics, I think it's predicting a 'joke' every time. Have to figure out how to fix." />
@@ -579,7 +576,8 @@
     <MESSAGE value="converted pandas dataframes to numpy 3x3 arrays" />
     <MESSAGE value="converted pandas dataframes to numpy 3x3 arrays&#10;Edited the model" />
     <MESSAGE value="converted pandas dataframes to numpy 3x3 arrays&#10;Edited the model layers" />
-    <option name="LAST_COMMIT_MESSAGE" value="converted pandas dataframes to numpy 3x3 arrays&#10;Edited the model layers" />
+    <MESSAGE value="added 'Final' folder, with saved stats model, jokes generator, and main.py to tie it together" />
+    <option name="LAST_COMMIT_MESSAGE" value="added 'Final' folder, with saved stats model, jokes generator, and main.py to tie it together" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/A_NN_Classifier$word_list_creator.coverage" NAME="word_list_creator Coverage Results" MODIFIED="1634768047177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HumorClassifierNN" />
