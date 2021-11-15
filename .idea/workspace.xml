@@ -193,7 +193,7 @@
       <workItem from="1636333091852" duration="31000" />
       <workItem from="1636333442172" duration="3554000" />
       <workItem from="1636823809485" duration="53000" />
-      <workItem from="1636913657469" duration="10118000" />
+      <workItem from="1636913657469" duration="10434000" />
     </task>
     <task id="LOCAL-00001" summary="Updating README.md, uploading a blank .py file: Test_NN_1.py">
       <created>1631882624525</created>
@@ -510,7 +510,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637013338076</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="converted pandas dataframes to numpy 3x3 arrays&#10;Edited the model layers">
+      <created>1637013701495</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1637013701495</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
