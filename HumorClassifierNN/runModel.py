@@ -49,7 +49,7 @@ model = get_model(x)
 model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['acc', tf.keras.metrics.SparseCategoricalAccuracy(
     name="sparse_categorical_accuracy", dtype=None)])
 history = model.fit(x, y, epochs=20)
-
+model.save("stats_model")
 # Plot training & validation accuracy values
 plt.plot(history.history['acc'])
 plt.plot(history.history['sparse_categorical_accuracy'])

@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="efd1aa41-7f00-4710-b63b-3013469395b0" name="Changes" comment="converted pandas dataframes to numpy 3x3 arrays&#10;Edited the model layers">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HumorClassifierNN/ClassifierModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/HumorClassifierNN/ClassifierModel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HumorClassifierNN/stats.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/HumorClassifierNN/stats.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HumorClassifierNN/word_list_creator.py" beforeDir="false" afterPath="$PROJECT_DIR$/HumorClassifierNN/word_list_creator.py" afterDir="false" />
-    </list>
+    <list default="true" id="efd1aa41-7f00-4710-b63b-3013469395b0" name="Changes" comment="converted pandas dataframes to numpy 3x3 arrays&#10;Edited the model layers" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -42,6 +37,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="SET_USER_NAME_GLOBALLY" value="false" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -197,7 +193,7 @@
       <workItem from="1636333091852" duration="31000" />
       <workItem from="1636333442172" duration="3554000" />
       <workItem from="1636823809485" duration="53000" />
-      <workItem from="1636913657469" duration="9450000" />
+      <workItem from="1636913657469" duration="10118000" />
     </task>
     <task id="LOCAL-00001" summary="Updating README.md, uploading a blank .py file: Test_NN_1.py">
       <created>1631882624525</created>
@@ -507,7 +503,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636921171309</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="converted pandas dataframes to numpy 3x3 arrays&#10;Edited the model layers">
+      <created>1637013338076</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1637013338076</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
