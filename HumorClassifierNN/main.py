@@ -8,7 +8,6 @@ def getJoke(input='1'):
         print(model)
         predictions = model.predict(jokes)
         predictions = np.mean(predictions, axis=1)
-        final_prediction = np.max(predictions)
         return final_prediction
 
 joke = getJoke()

@@ -4,17 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="efd1aa41-7f00-4710-b63b-3013469395b0" name="Changes" comment="added 'Final' folder, with saved stats model, jokes generator, and main.py to tie it together">
-      <change afterPath="$PROJECT_DIR$/final/saved_model.pb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/final/stats_model/keras_metadata.pb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/final/stats_model/saved_model_stats.pb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/final/stats_model/variables/variables.data-00000-of-00001" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/final/stats_model/variables/variables.index" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="efd1aa41-7f00-4710-b63b-3013469395b0" name="Changes" comment="stringing it all together">
       <change beforePath="$PROJECT_DIR$/HumorClassifierNN/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/HumorClassifierNN/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/final/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/final/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/final/saved_model_stats.pb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/final/simple_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/final/simple_generator.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,12 +59,15 @@
     <setting file="file://$PROJECT_DIR$/HumorClassifierNN/runModel.py" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1yGcgQ4JyNAaRGuJ9Qw4q0NqxT0" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ChangesTree.GroupingKeys" value="" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -207,21 +202,7 @@
       <workItem from="1636333442172" duration="3554000" />
       <workItem from="1636823809485" duration="53000" />
       <workItem from="1636913657469" duration="15693000" />
-      <workItem from="1637019937941" duration="3033000" />
-    </task>
-    <task id="LOCAL-00001" summary="Updating README.md, uploading a blank .py file: Test_NN_1.py">
-      <created>1631882624525</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1631882624526</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Updating README.md (formatting)">
-      <created>1631883091775</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1631883091775</updated>
+      <workItem from="1637019937941" duration="4468000" />
     </task>
     <task id="LOCAL-00003" summary="Word list creator: can parse jokes into nouns and verbs, then output similarity dataframes">
       <created>1634417785626</created>
@@ -552,7 +533,21 @@
       <option name="project" value="LOCAL" />
       <updated>1637016981426</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="stringing it all together">
+      <created>1637049826581</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1637049826581</updated>
+    </task>
+    <task id="LOCAL-00051" summary="stringing it all together">
+      <created>1637049837377</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1637049837377</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -571,7 +566,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="1. Trying only wup similarity&#10;2. Trying only Nouns stats and Verbs stats, not also joined Nouns and Verbs stats&#10;3. Adding differences between max and min difference between each pair of synsets, not differences b/w all synsets&#10;4. Only add max of stat, nothing else" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="1. Changed to add min similarity (least amount of similarity) of synsets&#10;2. Added threshold to remove similarities below 0.5 similarity&#10;3. Made stat sum of all similarities in a joke" />
     <MESSAGE value="Edited Model and statistics, I think it's predicting a 'joke' every time. Have to figure out how to fix." />
     <MESSAGE value="used pickle, to export joke stat data so I don't have to regenerate each time I train" />
@@ -596,7 +591,8 @@
     <MESSAGE value="converted pandas dataframes to numpy 3x3 arrays&#10;Edited the model" />
     <MESSAGE value="converted pandas dataframes to numpy 3x3 arrays&#10;Edited the model layers" />
     <MESSAGE value="added 'Final' folder, with saved stats model, jokes generator, and main.py to tie it together" />
-    <option name="LAST_COMMIT_MESSAGE" value="added 'Final' folder, with saved stats model, jokes generator, and main.py to tie it together" />
+    <MESSAGE value="stringing it all together" />
+    <option name="LAST_COMMIT_MESSAGE" value="stringing it all together" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/A_NN_Classifier$word_list_creator.coverage" NAME="word_list_creator Coverage Results" MODIFIED="1634768047177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HumorClassifierNN" />
