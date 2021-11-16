@@ -62,6 +62,9 @@ def get_stats(joke):
 
 def get_joke(input='1'):
     jokes = generate_jokes()
+    print('jokes:')
+    print(jokes)
+    print('\n')
     if input == '1':
         present_gathered = 0
         print(str(0) + '% Data processed')
@@ -74,9 +77,6 @@ def get_joke(input='1'):
         model = keras.models.load_model(r"stats_model")
         predictions = model.predict(stats)
         predictions = np.mean(predictions, axis=1)
-        print(jokes)
-        print(predictions)
-        print(np.where(predictions==np.max(predictions))[0][0])
         final_prediction = jokes[np.where(predictions==np.max(predictions))[0][0]]
         return final_prediction
 

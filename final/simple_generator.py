@@ -3,18 +3,27 @@
 
 import tensorflow as tf
 from transformers import TFGPT2LMHeadModel, GPT2Tokenizer
+import csv
 
+
+reader = csv.reader(open("positive_data_file.csv"))
+jokes = []
+count = 0
+for row in reader:
+    if count == 50:
+        break
+    count += 1
+    jokes.extend(row)
 
 def generate_jokes():
     tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
-
     model = TFGPT2LMHeadModel.from_pretrained("gpt2", pad_token_id=tokenizer.eos_token_id)
     # model = TFGPT2LMHeadModel.from_pretrained("gpt2") #removed pad_token_id
 
     # N is the total number of sequences we want to return. Currently set to 5
-    N = 5
+    N = 15
     # MAX_LEN is the max length of each generated sequence
-    MAX_LEN=50
+    MAX_LEN = 50
     # Padding text can be provided to make input longer so that the model has more context for generation.
     PADDING_TEXT = ""
     # Modify the input_text variable to provide the starting text for the generator
