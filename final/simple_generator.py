@@ -3,10 +3,13 @@
 
 import tensorflow as tf
 from transformers import TFGPT2LMHeadModel, GPT2Tokenizer
-def generateJokes():
+
+
+def generate_jokes():
     tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
 
     model = TFGPT2LMHeadModel.from_pretrained("gpt2", pad_token_id=tokenizer.eos_token_id)
+    # model = TFGPT2LMHeadModel.from_pretrained("gpt2") #removed pad_token_id
 
     # N is the total number of sequences we want to return. Currently set to 5
     N = 5

@@ -1,11 +1,15 @@
-import generateJokes
-import saved_model_stats.pb
+from simple_generator import generateJokes
 
 
-def getJokes(input='1'):
+def getJoke(input='1'):
     jokes = generateJokes()
     if input == '1':
+        model = keras.models.load_model("saved_model_stats.pb")
+        print(model)
         predictions = model.predict(jokes)
         predictions = np.mean(predictions, axis=1)
         final_prediction = np.max(predictions)
         return final_prediction
+
+joke = getJoke()
+print(joke)
