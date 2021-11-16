@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="efd1aa41-7f00-4710-b63b-3013469395b0" name="Changes" comment="stringing it all together, got some output">
-      <change afterPath="$PROJECT_DIR$/final/positive_data_file.csv" afterDir="false" />
+    <list default="true" id="efd1aa41-7f00-4710-b63b-3013469395b0" name="Changes" comment="working">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/final/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/final/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/final/simple_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/final/simple_generator.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -204,14 +202,7 @@
       <workItem from="1636333442172" duration="3554000" />
       <workItem from="1636823809485" duration="53000" />
       <workItem from="1636913657469" duration="15693000" />
-      <workItem from="1637019937941" duration="10919000" />
-    </task>
-    <task id="LOCAL-00004" summary="Word list creator: can parse jokes into nouns and verbs, then output similarity dataframes">
-      <created>1634421377839</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1634421377839</updated>
+      <workItem from="1637019937941" duration="12409000" />
     </task>
     <task id="LOCAL-00005" summary="Word list creator: can parse jokes into nouns and verbs, then output similarity dataframes">
       <created>1634424092851</created>
@@ -549,7 +540,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637059718924</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="working">
+      <created>1637081812454</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1637081812454</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -569,7 +567,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Edited Model and statistics, I think it's predicting a 'joke' every time. Have to figure out how to fix." />
     <MESSAGE value="used pickle, to export joke stat data so I don't have to regenerate each time I train" />
     <MESSAGE value="Changed to use 1D histogram of joke similarities" />
     <MESSAGE value="1. Changed bin num to 2 instead of 3&#10;2. Saved data using pickle library" />
@@ -594,7 +591,8 @@
     <MESSAGE value="added 'Final' folder, with saved stats model, jokes generator, and main.py to tie it together" />
     <MESSAGE value="stringing it all together" />
     <MESSAGE value="stringing it all together, got some output" />
-    <option name="LAST_COMMIT_MESSAGE" value="stringing it all together, got some output" />
+    <MESSAGE value="working" />
+    <option name="LAST_COMMIT_MESSAGE" value="working" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/A_NN_Classifier$word_list_creator.coverage" NAME="word_list_creator Coverage Results" MODIFIED="1634768047177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HumorClassifierNN" />

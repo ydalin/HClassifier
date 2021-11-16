@@ -21,7 +21,7 @@ def generate_jokes():
     # model = TFGPT2LMHeadModel.from_pretrained("gpt2") #removed pad_token_id
 
     # N is the total number of sequences we want to return. Currently set to 5
-    N = 15
+    N = 5
     # MAX_LEN is the max length of each generated sequence
     MAX_LEN = 50
     # Padding text can be provided to make input longer so that the model has more context for generation.
