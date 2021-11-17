@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from ..main import get_joke
+from main import get_joke
 
 
 app = Flask(__name__)

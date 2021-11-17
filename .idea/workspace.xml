@@ -4,8 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="efd1aa41-7f00-4710-b63b-3013469395b0" name="Changes" comment="adding webapp">
+    <list default="true" id="efd1aa41-7f00-4710-b63b-3013469395b0" name="Changes" comment="edited webapp in final">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/final/OnePageMLApp-main/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/final/OnePageMLApp-main/server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/final/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/final/OnePageMLApp-main/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/final/positive_data_file.csv" beforeDir="false" afterPath="$PROJECT_DIR$/final/OnePageMLApp-main/positive_data_file.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/final/saved_model.pb" beforeDir="false" afterPath="$PROJECT_DIR$/final/OnePageMLApp-main/saved_model.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/final/simple_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/final/OnePageMLApp-main/simple_generator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/final/stats_model/keras_metadata.pb" beforeDir="false" afterPath="$PROJECT_DIR$/final/OnePageMLApp-main/stats_model/keras_metadata.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/final/stats_model/saved_model.pb" beforeDir="false" afterPath="$PROJECT_DIR$/final/OnePageMLApp-main/stats_model/saved_model.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/final/stats_model/variables/variables.data-00000-of-00001" beforeDir="false" afterPath="$PROJECT_DIR$/final/OnePageMLApp-main/stats_model/variables/variables.data-00000-of-00001" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/final/stats_model/variables/variables.index" beforeDir="false" afterPath="$PROJECT_DIR$/final/OnePageMLApp-main/stats_model/variables/variables.index" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,11 +97,12 @@
       <recent name="C:\Users\super\PycharmProjects\A-NN_Classifier1\HumorClassifierNN" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\super\PycharmProjects\A-NN_Classifier\final\OnePageMLApp-main" />
       <recent name="C:\Users\super\PycharmProjects\A-NN_Classifier\HumorClassifierNN" />
       <recent name="D:\Dropbox\A-NN_Classifier" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.runModel">
+  <component name="RunManager" selected="Python.server">
     <configuration name="gather_data" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -137,6 +147,29 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="server" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="FLASK_APP" value="server" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\super\anaconda3\envs\tf_gpu\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/final/OnePageMLApp-main" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/final/OnePageMLApp-main/server.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="word_list_creator" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -161,6 +194,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.server" />
         <item itemvalue="Python.runModel" />
         <item itemvalue="Python.gather_data" />
         <item itemvalue="Python.word_list_creator" />
@@ -201,14 +235,7 @@
       <workItem from="1636333442172" duration="3554000" />
       <workItem from="1636823809485" duration="53000" />
       <workItem from="1636913657469" duration="15693000" />
-      <workItem from="1637019937941" duration="18915000" />
-    </task>
-    <task id="LOCAL-00007" summary="Set model to only look at Verbs and Nouns.&#10;Now Model has some results, but no better than random chance.">
-      <created>1634899535493</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1634899535493</updated>
+      <workItem from="1637019937941" duration="21217000" />
     </task>
     <task id="LOCAL-00008" summary="Fixed bug where word_list_creator.py would word multiple times, once for each synset (meaning) of the word.&#10;Now it adds it once.">
       <created>1634899829870</created>
@@ -546,7 +573,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637178652730</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="edited webapp in final">
+      <created>1637179538523</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1637179538523</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -566,7 +600,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Changed to use 1D histogram of joke similarities" />
     <MESSAGE value="1. Changed bin num to 2 instead of 3&#10;2. Saved data using pickle library" />
     <MESSAGE value="Added more nodes to initial layers" />
     <MESSAGE value="made histogram bins=5" />
@@ -591,11 +624,13 @@
     <MESSAGE value="stringing it all together, got some output" />
     <MESSAGE value="working" />
     <MESSAGE value="adding webapp" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding webapp" />
+    <MESSAGE value="edited webapp in final" />
+    <option name="LAST_COMMIT_MESSAGE" value="edited webapp in final" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/A_NN_Classifier$word_list_creator.coverage" NAME="word_list_creator Coverage Results" MODIFIED="1634768047177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HumorClassifierNN" />
     <SUITE FILE_PATH="coverage/A_NN_Classifier$gather_data.coverage" NAME="gather_data Coverage Results" MODIFIED="1635109296071" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HumorClassifierNN" />
+    <SUITE FILE_PATH="coverage/A_NN_Classifier$server.coverage" NAME="server Coverage Results" MODIFIED="1637181520723" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/final/OnePageMLApp-main" />
     <SUITE FILE_PATH="coverage/A_NN_Classifier1$runModel.coverage" NAME="runModel Coverage Results" MODIFIED="1634666025570" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HumorClassifierNN" />
     <SUITE FILE_PATH="coverage/A_NN_Classifier1$gather_data.coverage" NAME="gather_data Coverage Results" MODIFIED="1634493874638" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HumorClassifierNN" />
     <SUITE FILE_PATH="coverage/A_NN_Classifier$runModel.coverage" NAME="runModel Coverage Results" MODIFIED="1635110384584" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HumorClassifierNN" />
