@@ -21,16 +21,16 @@ def generate_jokes():
     # model = TFGPT2LMHeadModel.from_pretrained("gpt2") #removed pad_token_id
 
     # N is the total number of sequences we want to return. Currently set to 5
-    N = 5
+    N = 200
     # MAX_LEN is the max length of each generated sequence
-    MAX_LEN = 50
+    MAX_LEN = 25
     # Padding text can be provided to make input longer so that the model has more context for generation.
     PADDING_TEXT = ""
     # Modify the input_text variable to provide the starting text for the generator
     input_text = "Knock Knock! Who's there?"
     input_ids = tokenizer.encode(PADDING_TEXT + input_text, return_tensors='tf')
 
-    tf.random.set_seed(0)
+    # tf.random.set_seed(0)
 
     sample_outputs = model.generate(
         input_ids,

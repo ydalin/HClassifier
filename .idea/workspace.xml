@@ -5,6 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="efd1aa41-7f00-4710-b63b-3013469395b0" name="Changes" comment="working">
+      <change afterPath="$PROJECT_DIR$/final/OnePageMLApp-main/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/final/OnePageMLApp-main/server.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/final/OnePageMLApp-main/templates/OFL.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/final/OnePageMLApp-main/templates/README.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/final/OnePageMLApp-main/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/final/OnePageMLApp-main/templates/robot.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/final/OnePageMLApp-main/templates/stylesheet.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/final/simple_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/final/simple_generator.py" afterDir="false" />
     </list>
@@ -202,14 +209,7 @@
       <workItem from="1636333442172" duration="3554000" />
       <workItem from="1636823809485" duration="53000" />
       <workItem from="1636913657469" duration="15693000" />
-      <workItem from="1637019937941" duration="12409000" />
-    </task>
-    <task id="LOCAL-00005" summary="Word list creator: can parse jokes into nouns and verbs, then output similarity dataframes">
-      <created>1634424092851</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1634424092851</updated>
+      <workItem from="1637019937941" duration="18305000" />
     </task>
     <task id="LOCAL-00006" summary="Model runs! Accuracy = 0, though :(&#10;&#10;https://www.tensorflow.org/api_docs/python/tf/keras/Sequential">
       <created>1634749218534</created>
@@ -547,7 +547,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637081812454</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="working">
+      <created>1637085031186</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1637085031186</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
