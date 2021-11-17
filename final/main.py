@@ -60,12 +60,12 @@ def get_stats(joke):
         stats.append(hist)
     return stats
 
-def get_joke(input='1'):
+def get_joke(input=1):
     jokes = generate_jokes()
     print('jokes:')
     print(jokes)
     print('\n')
-    if input == '1':
+    if input == 1:
         present_gathered = 0
         print(str(0) + '% Data processed')
         stats = []
@@ -79,6 +79,8 @@ def get_joke(input='1'):
         predictions = np.mean(predictions, axis=1)
         final_prediction = jokes[np.where(predictions==np.max(predictions))[0][0]]
         return final_prediction
+    else:
+        return 'not implemented yet'
 
 joke = get_joke()
 print(joke)
