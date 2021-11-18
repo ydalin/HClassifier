@@ -6,15 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="efd1aa41-7f00-4710-b63b-3013469395b0" name="Changes" comment="edited webapp in final">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/final/OnePageMLApp-main/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/final/OnePageMLApp-main/server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/final/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/final/OnePageMLApp-main/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/final/positive_data_file.csv" beforeDir="false" afterPath="$PROJECT_DIR$/final/OnePageMLApp-main/positive_data_file.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/final/saved_model.pb" beforeDir="false" afterPath="$PROJECT_DIR$/final/OnePageMLApp-main/saved_model.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/final/simple_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/final/OnePageMLApp-main/simple_generator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/final/stats_model/keras_metadata.pb" beforeDir="false" afterPath="$PROJECT_DIR$/final/OnePageMLApp-main/stats_model/keras_metadata.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/final/stats_model/saved_model.pb" beforeDir="false" afterPath="$PROJECT_DIR$/final/OnePageMLApp-main/stats_model/saved_model.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/final/stats_model/variables/variables.data-00000-of-00001" beforeDir="false" afterPath="$PROJECT_DIR$/final/OnePageMLApp-main/stats_model/variables/variables.data-00000-of-00001" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/final/stats_model/variables/variables.index" beforeDir="false" afterPath="$PROJECT_DIR$/final/OnePageMLApp-main/stats_model/variables/variables.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/final/OnePageMLApp-main/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/final/OnePageMLApp-main/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/final/OnePageMLApp-main/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/final/OnePageMLApp-main/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,9 +72,10 @@
     <property name="ChangesTree.GroupingKeys" value="" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="ToolWindowStructure.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/final" />
-    <property name="settings.editor.selected.configurable" value="PyConsoleConfigurable.Python Console" />
+    <property name="settings.editor.selected.configurable" value="inlay.hints" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -235,14 +229,8 @@
       <workItem from="1636333442172" duration="3554000" />
       <workItem from="1636823809485" duration="53000" />
       <workItem from="1636913657469" duration="15693000" />
-      <workItem from="1637019937941" duration="21217000" />
-    </task>
-    <task id="LOCAL-00008" summary="Fixed bug where word_list_creator.py would word multiple times, once for each synset (meaning) of the word.&#10;Now it adds it once.">
-      <created>1634899829870</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1634899829870</updated>
+      <workItem from="1637019937941" duration="22311000" />
+      <workItem from="1637249922494" duration="1201000" />
     </task>
     <task id="LOCAL-00009" summary="Changes:&#10;1. Changed parameters in callback 'ReduceLROnPlateau' to reduce learning rate more aggressively&#10;2. Added MaxPooling1D to model gets maximum value from previous layer">
       <created>1634907271870</created>
@@ -580,7 +568,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637179538523</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="edited webapp in final">
+      <created>1637181742938</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1637181742938</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
