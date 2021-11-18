@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 from main import get_joke
 
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="static")
 
 @app.route('/')
 def index():
