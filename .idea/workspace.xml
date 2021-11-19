@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="efd1aa41-7f00-4710-b63b-3013469395b0" name="Changes" comment="edited webapp in final">
+      <change afterPath="$PROJECT_DIR$/final/OnePageMLApp-main/static/css/robot.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/final/OnePageMLApp-main/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/final/OnePageMLApp-main/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/final/OnePageMLApp-main/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/final/OnePageMLApp-main/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/final/OnePageMLApp-main/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/final/OnePageMLApp-main/static/css/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +75,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="ToolWindowStructure.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/final" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/final/OnePageMLApp-main/static/css" />
     <property name="settings.editor.selected.configurable" value="inlay.hints" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -231,20 +232,7 @@
       <workItem from="1636913657469" duration="15693000" />
       <workItem from="1637019937941" duration="22311000" />
       <workItem from="1637249922494" duration="1201000" />
-    </task>
-    <task id="LOCAL-00009" summary="Changes:&#10;1. Changed parameters in callback 'ReduceLROnPlateau' to reduce learning rate more aggressively&#10;2. Added MaxPooling1D to model gets maximum value from previous layer">
-      <created>1634907271870</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1634907271870</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Changes:&#10;1. Changed parameters in callback 'ReduceLROnPlateau' to reduce learning rate more aggressively&#10;2. Added input layer (oops, forgot that!)&#10;3. Changed model optimizer from Stochastic Gradient Descent to ADAM&#10;Results:&#10;Now it outputs only 1.0, not a range. But only 1.0, never 0!&#10;So it needs more work...">
-      <created>1634908958436</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1634908958436</updated>
+      <workItem from="1637275275838" duration="1305000" />
     </task>
     <task id="LOCAL-00011" summary="Changes:&#10;1. Changed parameters in callback 'ReduceLROnPlateau' to reduce learning rate more aggressively&#10;2. Added input layer (oops, forgot that!)&#10;3. Changed model optimizer from Stochastic Gradient Descent to ADAM&#10;Results:&#10;Now it outputs only 1.0, not a range. But only 1.0, never 0!&#10;So it needs more work...">
       <created>1634909148542</created>
@@ -575,7 +563,21 @@
       <option name="project" value="LOCAL" />
       <updated>1637181742938</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="edited webapp in final">
+      <created>1637275343260</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1637275343260</updated>
+    </task>
+    <task id="LOCAL-00059" summary="edited webapp in final">
+      <created>1637275351310</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1637275351310</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

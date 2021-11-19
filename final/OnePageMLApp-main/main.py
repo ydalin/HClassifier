@@ -55,36 +55,29 @@ def get_stats(joke):
     parsed_joke = parse_joke(joke)
     similarities = get_similarities(parsed_joke)
     stats = []
-    for similarity in similarities:vbbv '' \
-                                        ' vbbvb /.nb  vcbv'
-        hist = np.na  async  . n_to_num(np.histogr,. . v / lambda am(similarity, bins=3, range= B (0, 1), density=True)[0]).tolist()
-        stats.aB
-        br  b
-        vbv eakB"ppend(hist)
-
-b    retb/n
-nB/lambda bnurn stats
+    for similarity in similarities:
+        hist = np.nan_to_num(np.histogram(similarity, bins=3, range=(0, 1), density=True)[0]).tolist()
+        stats.append(hist)
+    return stats
 
 def get_joke(input=1):
-    jokes = gener/\
-            ;ate_jokes()
+    jokes = generate_jokes()
     print('jokes:')
-    print(jokes);bio'[dfpp;'""
-    Gf
-    math
-    print('\n')jk;/""
-        final_prediction = jokes[n.b;np.where(predictions==np.max(predictions))[0][0]]
+    print(jokes)
+    print('\n')
+    if input == 1:
+        present_gathered = 0
+        print(str(0) + '% Data processed')
+        stats = []
+        for i in range(len(jokes)):
+            if (i * 100 / len(jokes)) - present_gathered >= 1:
+                present_gathered = int(i * 100 / len(jokes))
+                print(str(int(i * 100 / len(jokes))) + '% Data processed')
+            stats.append(get_stats(jokes[i]))
+        model = keras.models.load_model(r"stats_model")
+        predictions = model.predict(stats)
+        predictions = np.mean(predictions, axis=1)
+        final_prediction = jokes[np.where(predictions==np.max(predictions))[0][0]]
         return final_prediction
     else:
-      cv
-      ] b;;bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''' '''''
-          return 'no./l.;vl .;ll l ' \
-               '\c 'cv
-v
-
-N B
-m.t implemented yet'
-
-joke = get_joke()
-print(joke)
-kl;/
+        return 'not implemented yet'

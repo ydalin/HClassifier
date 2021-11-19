@@ -11,7 +11,7 @@
 	body {
 		width: 700pt;
 		margin: 0 auto;
-		
+
 	}
 	header {
 		background: -webkit-linear-gradient(gold, DimGray);
@@ -27,8 +27,7 @@
 		background: url("robot.jpg") center no-repeat;
 		background-size: auto 100%;
 		height: auto;
-		opacity: 0.4;	
+		opacity: 0.4;
 		box-shadow: 4px 2px 2px rgba(150, 150, 150, .5);
 	}
-	
 </style>
