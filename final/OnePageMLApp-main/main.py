@@ -1,11 +1,12 @@
-from simple_generator import generate_jokes
-import keras
+# from simple_generator import generate_jokes
+# import keras
 import nltk
 from nltk.corpus import wordnet as wn
 from nltk import word_tokenize, pos_tag
 import numpy as np
 import csv
 import math
+import eval
 
 
 def parse_joke(joke):
@@ -79,5 +80,7 @@ def get_joke(input=1):
         predictions = np.mean(predictions, axis=1)
         final_prediction = jokes[np.where(predictions==np.max(predictions))[0][0]]
         return final_prediction
+    elif input == 2:
+        return eval.classify_joke(jokes)
     else:
         return 'not implemented yet'
