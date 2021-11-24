@@ -1,6 +1,7 @@
 #! /usr/bin/env python
 
-import tensorflow as tf
+# import tensorflow.compat.v1 as tf
+# tf.disable_v2_behavior()
 import numpy as np
 import os
 import time
@@ -8,9 +9,9 @@ import datetime
 
 from pip._vendor.distlib.compat import raw_input
 
+
 import data_helper
 # from model import TextCNN
-from tensorflow.contrib import learn
 import csv
 
 # CHANGE THIS: Load data. Load your own data here
@@ -34,7 +35,7 @@ def classify_joke(sentences):
 
     # Map data into vocabulary
     vocab_path = os.path.join(FLAGS.checkpoint_dir, "..", "vocab")
-    vocab_processor = learn.preprocessing.VocabularyProcessor.restore(vocab_path)
+    vocab_processor = tf.contrib.learn.preprocessing.VocabularyProcessor.restore(vocab_path)
     l_sentences = [vocab_processor.transform(_) for _ in sentences]
     x_test = np.array(l_sentences)
     # x_test = np.array(list(vocab_processor.transform(sentence)))

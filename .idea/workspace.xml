@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="efd1aa41-7f00-4710-b63b-3013469395b0" name="Changes" comment="Got CSS to work">
+    <list default="true" id="efd1aa41-7f00-4710-b63b-3013469395b0" name="Changes" comment="Editing CSS robot image">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/final/OnePageMLApp-main/eval.py" beforeDir="false" afterPath="$PROJECT_DIR$/final/OnePageMLApp-main/eval.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/final/OnePageMLApp-main/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/final/OnePageMLApp-main/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/final/OnePageMLApp-main/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/final/OnePageMLApp-main/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -189,9 +191,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.server" />
+        <item itemvalue="Python.word_list_creator" />
         <item itemvalue="Python.runModel" />
         <item itemvalue="Python.gather_data" />
-        <item itemvalue="Python.word_list_creator" />
       </list>
     </recent_temporary>
   </component>
@@ -233,14 +235,8 @@
       <workItem from="1637249922494" duration="1201000" />
       <workItem from="1637275275838" duration="2957000" />
       <workItem from="1637505316335" duration="1696000" />
-      <workItem from="1637603293694" duration="556000" />
-    </task>
-    <task id="LOCAL-00012" summary="Changes:&#10;1. Changed ReduceLROnPlateau callback values from reduce_lr = ReduceLROnPlateau(monitor='loss', factor=0.4,&#10;                              patience=0, min_lr=0.1)&#10; to: &#10; ReduceLROnPlateau(monitor='val_loss', factor=0.5,&#10;                              patience=2)&#10;2. Changed model layer structure">
-      <created>1634909532716</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1634909532716</updated>
+      <workItem from="1637603293694" duration="9408000" />
+      <workItem from="1637775595615" duration="94000" />
     </task>
     <task id="LOCAL-00013" summary="Changes:&#10;Removed ReduceLROnPlateau callback. Not needed, once I added an input layer.">
       <created>1634910911681</created>
@@ -578,7 +574,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637281676259</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="Editing CSS robot image">
+      <created>1637603898750</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1637603898750</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -598,7 +601,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Added more nodes to initial layers" />
     <MESSAGE value="made histogram bins=5" />
     <MESSAGE value="made histogram bins=3, generated data based on fisrt 500 jokes, for speed" />
     <MESSAGE value="changed from &#10;path_similarity[i, j] = min(path_diffs)&#10;to&#10;path_similarity.iloc[i, j] = min(path_diffs)" />
@@ -623,12 +625,13 @@
     <MESSAGE value="adding webapp" />
     <MESSAGE value="edited webapp in final" />
     <MESSAGE value="Got CSS to work" />
-    <option name="LAST_COMMIT_MESSAGE" value="Got CSS to work" />
+    <MESSAGE value="Editing CSS robot image" />
+    <option name="LAST_COMMIT_MESSAGE" value="Editing CSS robot image" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/A_NN_Classifier$word_list_creator.coverage" NAME="word_list_creator Coverage Results" MODIFIED="1634768047177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HumorClassifierNN" />
     <SUITE FILE_PATH="coverage/A_NN_Classifier$gather_data.coverage" NAME="gather_data Coverage Results" MODIFIED="1635109296071" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HumorClassifierNN" />
-    <SUITE FILE_PATH="coverage/A_NN_Classifier$server.coverage" NAME="server Coverage Results" MODIFIED="1637603670210" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/final/OnePageMLApp-main" />
+    <SUITE FILE_PATH="coverage/A_NN_Classifier$server.coverage" NAME="server Coverage Results" MODIFIED="1637775500663" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/final/OnePageMLApp-main" />
     <SUITE FILE_PATH="coverage/A_NN_Classifier1$runModel.coverage" NAME="runModel Coverage Results" MODIFIED="1634666025570" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HumorClassifierNN" />
     <SUITE FILE_PATH="coverage/A_NN_Classifier1$gather_data.coverage" NAME="gather_data Coverage Results" MODIFIED="1634493874638" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HumorClassifierNN" />
     <SUITE FILE_PATH="coverage/A_NN_Classifier$runModel.coverage" NAME="runModel Coverage Results" MODIFIED="1635110384584" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/HumorClassifierNN" />

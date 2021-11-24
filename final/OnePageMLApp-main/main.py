@@ -1,5 +1,5 @@
-# from simple_generator import generate_jokes
-# import keras
+from simple_generator import generate_jokes
+import keras
 import nltk
 from nltk.corpus import wordnet as wn
 from nltk import word_tokenize, pos_tag

@@ -1,7 +1,8 @@
 # To run this, simply type "python simple_generator.py" and the output will be
 # printed to the console from the array "output"
 
-import tensorflow as tf
+# import tensorflow.compat.v1 as tf
+# tf.disable_v2_behavior()
 from transformers import TFGPT2LMHeadModel, GPT2Tokenizer
 import csv
 
