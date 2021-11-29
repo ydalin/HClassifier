@@ -6,6 +6,7 @@
 #     should be saved
 # arg HF_DIR: the path to the directory where the huggingface transformers
 #     library is cloned
+#     ./transformers/examples/tensorflow/language-modeling
 
 # Import Steps
 import subprocess
@@ -18,7 +19,6 @@ args = sys.argv
 data_file = args[1]
 output_dir = args[2]
 hf_dir = args[3]
-print(hf_dir)
 
 output = "--output_dir=" + output_dir
 data = "--train_file=" + data_file
@@ -27,7 +27,6 @@ data = "--train_file=" + data_file
 epochs = "--num_train_epochs=2"
 save_steps = "--save_steps=1"
 
-# For mihir: To run CL task: a = subprocess.Popen([args])
 # First, change into the language-modeling directory
 # Next, actually run the command
 command = subprocess.Popen(["python",
