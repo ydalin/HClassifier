@@ -86,6 +86,6 @@ def get_joke(input=1):
     elif input == 2:
         return eval.classify_joke(jokes)
     elif input == 3:
-        return 'Novel Classifier: ' + classify_novel(jokes) + ' Control Classifier: ' + eval.classify_joke(jokes)
+        return 'Novel Classifier: ' + classify_novel(jokes) + '\nControl Classifier: ' + eval.classify_joke(jokes)
     else:
         return 'not implemented yet'
