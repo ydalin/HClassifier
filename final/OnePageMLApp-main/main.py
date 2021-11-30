@@ -61,26 +61,31 @@ def get_stats(joke):
         stats.append(hist)
     return stats
 
+def classify_novel(jokes):
+    present_gathered = 0
+    print(str(0) + '% Data processed')
+    stats = []
+    for i in range(len(jokes)):
+        if (i * 100 / len(jokes)) - present_gathered >= 1:
+            present_gathered = int(i * 100 / len(jokes))
+            print(str(int(i * 100 / len(jokes))) + '% Data processed')
+        stats.append(get_stats(jokes[i]))
+    model = keras.models.load_model(r"stats_model")
+    predictions = model.predict(stats)
+    predictions = np.mean(predictions, axis=1)
+    final_prediction = jokes[np.where(predictions == np.max(predictions))[0][0]]
+    return final_prediction
+
 def get_joke(input=1):
     jokes = generate_jokes()
     print('jokes:')
     print(jokes)
     print('\n')
     if input == 1:
-        present_gathered = 0
-        print(str(0) + '% Data processed')
-        stats = []
-        for i in range(len(jokes)):
-            if (i * 100 / len(jokes)) - present_gathered >= 1:
-                present_gathered = int(i * 100 / len(jokes))
-                print(str(int(i * 100 / len(jokes))) + '% Data processed')
-            stats.append(get_stats(jokes[i]))
-        model = keras.models.load_model(r"stats_model")
-        predictions = model.predict(stats)
-        predictions = np.mean(predictions, axis=1)
-        final_prediction = jokes[np.where(predictions==np.max(predictions))[0][0]]
-        return final_prediction
+        return classify_novel(jokes)
     elif input == 2:
         return eval.classify_joke(jokes)
+    elif input == 3:
+        return 'Novel Classifier: ' + classify_novel(jokes) + ' Control Classifier: ' + eval.classify_joke(jokes)
     else:
         return 'not implemented yet'
