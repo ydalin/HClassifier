@@ -19,6 +19,8 @@ args = sys.argv
 data_file = args[1]
 output_dir = args[2]
 hf_dir = args[3]
+log_err = args[4]
+log_out = args[5]
 
 output = "--output_dir=" + output_dir
 data = "--train_file=" + data_file
@@ -26,6 +28,9 @@ data = "--train_file=" + data_file
 # Defining some variables so that they can easily be modified later
 epochs = "--num_train_epochs=2"
 save_steps = "--save_steps=1"
+
+log_err = open(log_err, 'w+')
+log_out = open(log_out, 'w+')
 
 # First, change into the language-modeling directory
 # Next, actually run the command
@@ -40,7 +45,10 @@ command = subprocess.Popen(["python",
                             epochs,
                             save_steps,
                             ],
-                            cwd=hf_dir)
+                           cwd=hf_dir,
+                           stderr=log_err,
+                           stdout=log_out)
+                           #shell=True)
 
 # Ideally, the program would have finished training here.
 # Output is currently being printed directly to the command line,
