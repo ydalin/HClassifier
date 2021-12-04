@@ -7,6 +7,7 @@ import numpy as np
 import csv
 import math
 import eval
+from profanity_filter import ProfanityFilter as pf
 
 
 def parse_joke(joke):
@@ -81,11 +82,16 @@ def get_joke(input=1):
     print('jokes:')
     print(jokes)
     print('\n')
+    output = None
     if input == 1:
-        return classify_novel(jokes)
+        output = classify_novel(jokes)
     elif input == 2:
-        return eval.classify_joke(jokes)
+        output = eval.classify_joke(jokes)
     elif input == 3:
-        return 'Novel Classifier: ' + classify_novel(jokes) + '\nControl Classifier: ' + eval.classify_joke(jokes)
+        output = 'Novel Classifier: ' + classify_novel(jokes) + '\nControl Classifier: ' + eval.classify_joke(jokes)
     else:
         return 'not implemented yet'
+
+    return pf.censor(output)
+
+
