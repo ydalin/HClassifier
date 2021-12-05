@@ -65,4 +65,5 @@ def classify_joke(sentences):
             for x_test_batch in batches:
                 batch_predictions = sess.run(predictions, {input_x: x_test_batch, dropout_keep_prob: 1.0})
                 all_predictions = np.concatenate([all_predictions, batch_predictions])
-    return {s: p for s, p in zip(sentences, all_predictions)}
+    results = [s for s, p in zip(sentences, all_predictions) if p == 1.0]
+    return "" if len(results) == 0 else results[0]
