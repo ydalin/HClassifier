@@ -73,18 +73,14 @@ model.save("stats_model")
 predictions = model.predict(x_test)
 predictions = np.mean(predictions, axis=1).transpose()[0]
 predictions = np.vstack([predictions, ((predictions >= 0.5).astype(int)==y_test).astype(int)])
-# correct = predictions[:, predictions[1]==1][0]
-# incorrect = predictions[:, predictions[1]==0][0]
+correct = predictions[:, predictions[1]==1][0]
+incorrect = predictions[:, predictions[1]==0][0]
 
-# sns.distplot(predictions[0], color='green', label='correct')
-sns.kdeplot(predictions[0], predictions[1], fill=True)
+sns.kdeplot(correct, common_norm=True, color='green', label='correct')
+sns.kdeplot(incorrect, common_norm=True, color='red', label='incorrect')
 plt.legend()
 plt.show()
-# bins = 200
-# plt.hist(correct, density=True, bins=bins, label='correct', color='green')
-# plt.hist(incorrect, density=True, bins=bins, label='incorrect', color='red')
-# plt.legend()
-# plt.show()
+
 
 
 # predictions = np.mean(predictions, axis=1)

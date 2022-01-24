@@ -43,6 +43,7 @@ def gather_data(split=0.1):
             print(str(int(i*100/len(data))) + '% Data processed')
         stats = get_stats(data.iloc[i, 0])
         joke_stats.append((stats[0], data.iloc[i, 1], data.iloc[i, 0], stats[1]))
+    split = len(joke_stats) - int(split*len(joke_stats))
     train_data = joke_stats[:split]
     test_data = joke_stats[split:]
     print('Data fully processed!')
@@ -59,3 +60,5 @@ def write_to_pickle(split=0.1):
     open_file = open(file_name, "wb")
     pickle.dump(stats, open_file)
     open_file.close()
+
+write_to_pickle()
