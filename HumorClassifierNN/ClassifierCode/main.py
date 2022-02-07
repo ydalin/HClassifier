@@ -8,7 +8,7 @@ def main():
     prompt = "How to run? Input 1 or 2:" + \
              "\n1 Directly (very slow)" + \
              "\n2 From saved 'stats.pkl' file (not as slow)" + \
-             "\n3 Write data to 'stats.pkl' file"
+             "\n3 Write data to 'stats.pkl' file\n"
     action = int(input(prompt))
 
     if action not in [1, 2, 3]:
