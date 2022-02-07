@@ -5,19 +5,19 @@ def main():
     """
     Runs model, outputs data
     """
-    prompt = "How to run? Input 1 or 2:" + \
+    prompt = "How to run? Input 1 or 2 or 3:" + \
              "\n1 Directly (very slow)" + \
              "\n2 From saved 'stats.pkl' file (not as slow)" + \
              "\n3 Write data to 'stats.pkl' file\n"
-    action = int(input(prompt))
+    action = input(prompt)
 
-    if action not in [1, 2, 3]:
+    if action not in ['1', '2', '3']:
         raise Exception("Please input 1 or 2 or 3")
 
-    if action == 1:
+    if action == '1':
         print("Running Directly")
         run_model(directly=True)
-    elif action == 2:
+    elif action == '2':
         print("Running from saved stats.pkl file")
         run_model(directly=False)
     else:
