@@ -58,7 +58,7 @@ def run_model(directly=False):
     model = get_model(x)
     model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['acc', tf.keras.metrics.BinaryCrossentropy(
         name="binary_crossentropy", dtype=None)])
-    model.fit(x, y, validation_split=0.2, epochs=5)
+    model.fit(x, y, validation_split=0.1, epochs=5)
     model.save('results')
 
     # Runs model on test data
@@ -78,6 +78,33 @@ def run_model(directly=False):
     plt.ylabel("Density")
     plt.savefig('results/kdeplot.png')
 
+    # # Output graph displot
+    # sns.displot(
+    #     data=[correct, incorrect],
+    #     common_norm=True,
+    #     # hue_order=(0, 1),
+    #     # kind="kde",
+    #     multiple="fill",
+    #     # palette="ch:rot=-.25,hue=1,light=.75",
+    #     label=("correct", "incorrect"),
+    # )
+    plt.clf()
+    plt.hist(correct, bins=10, density=True, label='correct')
+    plt.hist(incorrect, bins=10, density=True, label='incorrect')
+
+    # plt.xlim([0.3, .7])
+    plt.legend()
+    plt.title("Classifier Accuracy Conditional Density Plot")
+    plt.xlabel("Confidence")
+    plt.ylabel("Density")
+    plt.savefig('results/Ckdeplot.png')
+
+    correct = np.array(sorted(correct))
+    incorrect = np.array(sorted(incorrect))
+    print('correct:')
+    print(correct[correct>.6].shape)
+    print('\nincorrect:')
+    print(incorrect[incorrect>.6].shape)
     # Save results in pickle file "results/final_data.pkl"
     final_data = (train_data, test_data, predictions, correct, incorrect)
     file_name = "results/final_data.pkl"
