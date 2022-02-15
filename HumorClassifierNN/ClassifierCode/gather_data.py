@@ -1,10 +1,9 @@
 import pandas as pd
-from pandas import read_csv
 from word_list_creator import get_stats
 import pickle
 
 
-def gather_data(split=0.1, testing=False):
+def gather_data(negative_data, positive_data, split=0.1, testing=False):
     """
     Imports raw data from .csv files, randomizes positive and negative datasets
         & converts them to train and test lists of 2d NumPy arrays
@@ -14,8 +13,7 @@ def gather_data(split=0.1, testing=False):
         [stats (2d NumPy array), joke from input data (str), funny/not funny (bool),
             joke from output data (str, should be the same as joke from input data)]
     """
-    negative_data = read_csv('negative_data_file.csv', names=['joke', 'funny'])
-    positive_data = read_csv('positive_data_file.csv', names=['joke', 'funny'])
+
 
     data_min_length = min([negative_data.shape[0], positive_data.shape[0]])
 

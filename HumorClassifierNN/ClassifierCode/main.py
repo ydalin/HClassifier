@@ -1,5 +1,8 @@
 from run_model import run_model
 from gather_data import write_to_pickle
+from pandas import read_csv
+from gather_data import gather_data
+
 
 def main():
     """
@@ -8,10 +11,11 @@ def main():
     prompt = "How to run? Input 1 or 2 or 3:" + \
              "\n1 Directly (very slow)" + \
              "\n2 From saved 'stats.pkl' file (not as slow)" + \
-             "\n3 Write data to 'stats.pkl' file\n"
+             "\n3 run cross-training full experiment (very very slow)" + \
+             "\n4 Write data to 'stats.pkl' file\n"
     action = input(prompt)
 
-    if action not in ['1', '2', '3']:
+    if action not in ['1', '2', '3', '4']:
         raise Exception("Please input 1 or 2 or 3")
 
     if action == '1':
@@ -20,6 +24,16 @@ def main():
     elif action == '2':
         print("Running from saved stats.pkl file")
         run_model(directly=False)
+    elif action == '3':
+        negative_data = read_csv('datasets/ML_Inter_Puns/negative_data_file.csv', names=['joke', 'funny'])
+        Puns_positive_data = read_csv('datasets/ML_Inter_Puns/positive_data_file.csv', names=['joke', 'funny'])
+        Shortjokes_positive_data = read_csv('datasets/ML_Inter_ShortJokes/positive_data_file.csv')
+        puns_train_data, puns_test_data = gather_data(negative_data=negative_data, positive_data=Puns_positive_data)
+        shortjokes_train_data, shortjokes_test_data = gather_data(negative_data=negative_data, positive_data=Shortjokes_positive_data)
+        run_model(directly=True, data=(puns_train_data, puns_test_data, 'puns train, puns test'))
+        run_model(directly=True, data=(shortjokes_train_data, shortjokes_test_data, 'shortjokes train, shortjokes test'))
+        run_model(directly=True, data=(shortjokes_train_data, puns_test_data, 'shortjokes train, puns test'))
+        run_model(directly=True, data=(puns_train_data, shortjokes_test_data, 'puns train, shortjokes test'))
     else:
         prompt = 'What test/train split to use (input a float)?'
         split = input(prompt)
