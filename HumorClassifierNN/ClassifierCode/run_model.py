@@ -6,7 +6,6 @@ import pickle
 from matplotlib import pyplot as plt
 import seaborn as sns
 from pandas import read_csv
-import timeit
 
 
 def run_model(directly=False, data=None):
@@ -17,7 +16,7 @@ def run_model(directly=False, data=None):
     2. Splits data into training and test data
     3. Compiles and fits model from get_model(), saves it to "results" folder
     4. Runs model on test data
-    5. Outputs graph to results folder
+    5_bins. Outputs graph to results folder
     6. Saves result data to "results/final_data.pkl"
     """
 
@@ -26,14 +25,10 @@ def run_model(directly=False, data=None):
         if data is None:
             negative_data = read_csv('datasets/ML_Inter_Puns/negative_data_file.csv', names=['joke', 'funny'])
             Puns_positive_data = read_csv('datasets/ML_Inter_Puns/positive_data_file.csv', names=['joke', 'funny'])
-            dataset_name_original = 'puns'
-            start = timeit.default_timer()
+            dataset_name = 'puns'
             train_data, test_data = gather_data(negative_data, Puns_positive_data)
-            stop = timeit.default_timer()
-            print('Gather_data() runtime for dataset: ' + dataset_name + ' is: ' + str(stop-start))
         else:
-            dataset_name = data[2]
-            train_data, test_data = gather_data(data[0], data[1])
+            train_data, test_data, dataset_name = data
     else:
         # Get data from "stats.pkl" file
         file_name = "stats.pkl"
@@ -41,7 +36,7 @@ def run_model(directly=False, data=None):
         stats = pickle.load(open_file)
         open_file.close()
         train_data, test_data = stats
-        dataset_name_original = 'from .pkl file'
+        dataset_name = 'from .pkl file'
 
     x = []
     y = []
@@ -67,108 +62,115 @@ def run_model(directly=False, data=None):
     y_test = np.asarray(y_test).astype(int)
 
     # Compiles and Trains Model
-    print('training dataset: ' + dataset_name_original)
+    print('training dataset: ' + dataset_name)
     model = get_model(x)
     model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['acc', tf.keras.metrics.BinaryCrossentropy(
         name="binary_crossentropy", dtype=None)])
-    model.fit(x, y, validation_split=0.1, epochs=5)
+    model.fit(x, y, validation_split=0.1, epochs=15, verbose=0)
     model.save('results')
-
     # Runs model on test data
-    predictions_original = model.predict(x_test)
+    predictions = model.predict(x_test).reshape(-1)
     # print(predictions[:10])
     # print(predictions[:, 0].flatten())
+    jokes = []
+    for joke in test_data:
+        jokes.append(joke[3])
 
-    if data is None:
-        # predictions = np.mean(predictions_original.copy(), axis=1).transpose()[0]
-        # dataset_name += '_Metric-mean'
-        predict_types = ['mean']
-    else:
-        predict_types = ['mean', 'median', 'maximum', 'Path only', 'L-Ch only', 'Wu-P only']
+    predictions = np.vstack([predictions, ((predictions >= 0.5).astype(int) == y_test).astype(int)])
 
-    for predict_type in predict_types:
-        dataset_name = dataset_name_original + '_Metric-' + predict_type
-        if predict_type == 'mean':
-            predictions = np.mean(predictions_original.copy(), axis=1).transpose()[0]
-        elif predict_type == 'median':
-            predictions = np.median(predictions_original.copy(), axis=1).transpose()[0]
-        elif predict_type == 'maximum':
-            predictions = np.maximum(predictions_original.copy(), axis=1).transpose()[0]
-        elif predict_type == 'Path only':
-            predictions = predictions_original.copy()[:, 0].flatten()
-        elif predict_type == 'L-Ch only':
-            predictions = predictions_original.copy()[:, 2].flatten()
-        else:
-            predictions = predictions_original.copy()[:, 1].flatten()
+    # predictions2 = np.vstack([predictions, ((predictions >= 0.5).astype(int) == y_test).astype(int), jokes])
+    # correct2 = []
+    # incorrect2 = []
+    # print(predictions2.shape)
+    # for i in range(predictions2.shape[1]):
+    #     prediction2 = predictions2[2, i]
+    #     if predictions2[1, i] == '1':
+    #         correct2.append(prediction2)
+    #     else:
+    #         incorrect2.append(prediction2)
+    #
+    # print('correct: ' + str(correct2))
+    # print('\n**************************\nincorrect: ' + str(incorrect2))
+    correct = predictions[:, predictions[1] == 1][0]
+    incorrect = predictions[:, predictions[1] == 0][0]
 
-        predictions = np.vstack([predictions, ((predictions >= 0.5).astype(int) == y_test).astype(int)])
+    # print('correct: ' + str(correct))
+    # print('\n')
+    # print('incorrect: ' + str(incorrect))
+    # Output graph
+    sns.kdeplot(correct, common_norm=True, color='green', label='correct', fill=True)
+    sns.kdeplot(incorrect, common_norm=True, color='red', label='incorrect', fill=True)
+    plt.legend()
+    plt.title("Novel Classifier KDE Plot, dataset: " + dataset_name)
+    plt.xlabel("Confidence")
+    plt.ylabel("Density")
+    plt.savefig("results/kdeplot_" + dataset_name + ".png")
 
-        correct = predictions[:, predictions[1] == 1][0]
-        incorrect = predictions[:, predictions[1] == 0][0]
+    # # Output graph displot
+    # sns.displot(
+    #     data=[correct, incorrect],
+    #     common_norm=True,
+    #     # hue_order=(0, 1),
+    #     # kind="kde",
+    #     multiple="fill",
+    #     # palette="ch:rot=-.25,hue=1,light=.75",
+    #     label=("correct", "incorrect"),
+    # )
+    plt.clf()
+    plt.hist(correct, bins=10, density=True, label='correct', color='green')
+    plt.hist(incorrect, bins=10, density=True, label='incorrect', color='red')
 
-        # Output graph
-        sns.kdeplot(correct, common_norm=True, color='green', label='correct', fill=True)
-        sns.kdeplot(incorrect, common_norm=True, color='red', label='incorrect', fill=True)
-        plt.legend()
-        plt.title("Classifier Accuracy Density Plot, dataset: " + dataset_name)
-        plt.xlabel("Confidence")
-        plt.ylabel("Density")
-        plt.savefig("results/kdeplot_" + dataset_name + ".png")
-
-        # # Output graph displot
-        # sns.displot(
-        #     data=[correct, incorrect],
-        #     common_norm=True,
-        #     # hue_order=(0, 1),
-        #     # kind="kde",
-        #     multiple="fill",
-        #     # palette="ch:rot=-.25,hue=1,light=.75",
-        #     label=("correct", "incorrect"),
-        # )
-        plt.clf()
-        plt.hist(correct, bins=10, density=True, label='correct')
-        plt.hist(incorrect, bins=10, density=True, label='incorrect')
-
-        # plt.xlim([0.3, .7])
-        plt.legend()
-        plt.title("Classifier Histogram, dataset: " + dataset_name)
-        plt.xlabel("Confidence")
-        plt.ylabel("Density")
-        plt.savefig("results/hist_" + dataset_name + ".png")
-
-        correct = np.array(sorted(correct))
-        incorrect = np.array(sorted(incorrect))
-        predictions = predictions[:, predictions[0, :].argsort()]
-
-        print('Stats for dataset: ' + dataset_name)
-        print('Entire dataset % Correct: ' + str(correct.shape[0]/(correct.shape[0]+incorrect.shape[0])))
+    # plt.xlim([0.3, .7])
+    plt.legend()
+    plt.title("Novel Classifier Histogram, dataset: " + dataset_name)
+    plt.xlabel("Confidence")
+    plt.ylabel("Density")
+    plt.savefig("results/hist_" + dataset_name + ".png")
+    plt.clf()
 
 
-        correct5 = predictions[:, -5:][:, predictions[1][-5:] == 1].shape[1]*100/5
-        correct10 = predictions[:, -10:][:, predictions[1][-10:] == 1].shape[1]*100/10
-        correct20 = predictions[:, -20:][:, predictions[1][-20:] == 1].shape[1]*100/20
-        std_devpt2 = predictions[:, np.argwhere(predictions[0] >= np.max(predictions[0])-np.std(predictions[0])*0.2)]
-        std_devpt5 = predictions[:, np.argwhere(predictions[0] >= np.max(predictions[0])-np.std(predictions[0])*0.5)]
-        std_dev = predictions[:, np.argwhere(predictions[0] >= np.max(predictions[0])-np.std(predictions[0]))]
-        pct_1 = predictions[:, -int(.1*predictions.shape[1]):]
-        pct_05 = predictions[:, -int(.05 * predictions.shape[1]):]
-        pct_01 = predictions[:, -int(.01 * predictions.shape[1]):]
-        print('\nTop 20, in pct correct: ' + str(correct20))
-        print('Top 10, in pct correct: ' + str(correct10))
-        print('Top 5, in pct correct: ' + str(correct5))
+    correct = np.array(sorted(correct))
+    incorrect = np.array(sorted(incorrect))
+    predictions = predictions[:, predictions[0, :].argsort()]
+    print('Stats for dataset: ' + dataset_name)
+    print('Entire dataset % Correct: ' + str(correct.shape[0]*100/(correct.shape[0]+incorrect.shape[0])))
 
-        print('\nTop 1 percent, in pct correct: ' + str(pct_1[:, pct_1[1]==1].shape[1]*100/pct_1.shape[1]))
-        print('Top .05 percent, in pct correct: ' + str(pct_05[:, pct_05[1] == 1].shape[1] * 100 / pct_05.shape[1]))
-        print('Top .01 percent, in pct correct: ' + str(pct_01[:, pct_01[1] == 1].shape[1] * 100 / pct_01.shape[1]))
 
-        print('\nTop 1 std dev, in pct correct: ' + str(std_dev[:, std_dev[1] == 1].shape[1]*100/std_dev.shape[1]))
-        print('Top .5 std dev, in pct correct: ' + str(std_devpt5[:, std_devpt5[1] == 1].shape[1]*100/std_devpt5.shape[1]))
-        print('Top .2 std dev, in pct correct: ' + str(std_devpt2[:, std_devpt2[1] == 1].shape[1]*100/std_devpt2.shape[1]))
+    correct5 = predictions[:, -5:][:, predictions[1][-5:] == 1].shape[1]*100/5
+    correct10 = predictions[:, -10:][:, predictions[1][-10:] == 1].shape[1]*100/10
+    correct20 = predictions[:, -20:][:, predictions[1][-20:] == 1].shape[1]*100/20
+    std_devpt2 = predictions[:, np.argwhere(predictions[0] >= np.max(predictions[0])-np.std(predictions[0])*0.2)]
+    std_devpt5 = predictions[:, np.argwhere(predictions[0] >= np.max(predictions[0])-np.std(predictions[0])*0.5)]
+    std_dev = predictions[:, np.argwhere(predictions[0] >= np.max(predictions[0])-np.std(predictions[0]))]
+    pct_1 = predictions[:, -int(.1*predictions.shape[1]):]
+    pct_05 = predictions[:, -int(.05 * predictions.shape[1]):]
+    pct_01 = predictions[:, -int(.01 * predictions.shape[1]):]
+    print('\nTop 20, in pct correct: ' + str(correct20))
+    print('Top 10, in pct correct: ' + str(correct10))
+    print('Top 5_bins, in pct correct: ' + str(correct5))
 
-        # Save results in pickle file "results/final_data.pkl"
-        final_data = (train_data, test_data, predictions, correct, incorrect)
-        file_name = "results/final_data_" + dataset_name + ".pkl"
-        open_file = open(file_name, "wb")
-        pickle.dump(final_data, open_file)
-        open_file.close()
-        print('*********************************END DATASET STATS***************************************\n')
+    print('\nTop 10 percent, in pct correct: ' + str(pct_1[:, pct_1[1]==1].shape[1]*100/pct_1.shape[1]))
+    print('Top 5_bins percent, in pct correct: ' + str(pct_05[:, pct_05[1] == 1].shape[1] * 100 / pct_05.shape[1]))
+    print('Top 1 percent, in pct correct: ' + str(pct_01[:, pct_01[1] == 1].shape[1] * 100 / pct_01.shape[1]))
+
+    print('\nTop 1 std dev, in pct correct: ' + str(std_dev[:, std_dev[1] == 1].shape[1]*100/std_dev.shape[1]))
+    print('Top .5_bins std dev, in pct correct: ' + str(std_devpt5[:, std_devpt5[1] == 1].shape[1]*100/std_devpt5.shape[1]))
+    print('Top .2 std dev, in pct correct: ' + str(std_devpt2[:, std_devpt2[1] == 1].shape[1]*100/std_devpt2.shape[1]))
+
+    print('\nTotal results:')
+    print(str(correct.shape[0]*100/(correct.shape[0]+incorrect.shape[0])))
+    print(str(correct20))
+    print(str(correct10))
+    print(str(correct5))
+    print(str(pct_1[:, pct_1[1]==1].shape[1]*100/pct_1.shape[1]))
+    print(str(pct_05[:, pct_05[1] == 1].shape[1] * 100 / pct_05.shape[1]))
+    print(str(pct_01[:, pct_01[1] == 1].shape[1] * 100 / pct_01.shape[1]))
+    print(str(std_dev[:, std_dev[1] == 1].shape[1]*100/std_dev.shape[1]))
+    print(str(std_devpt5[:, std_devpt5[1] == 1].shape[1]*100/std_devpt5.shape[1]))
+    print(str(std_devpt2[:, std_devpt2[1] == 1].shape[1]*100/std_devpt2.shape[1]))
+    # Save results in pickle file "results/final_data.pkl"
+    final_data = (train_data, test_data, predictions, correct, incorrect)
+    file_name = "results/final_data_" + dataset_name + ".pkl"
+    open_file = open(file_name, "wb")
+    pickle.dump(final_data, open_file)
+    open_file.close()

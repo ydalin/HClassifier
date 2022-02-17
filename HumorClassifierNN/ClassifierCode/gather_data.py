@@ -1,4 +1,5 @@
 import pandas as pd
+from pandas import read_csv
 from word_list_creator import get_stats
 import pickle
 
@@ -16,7 +17,6 @@ def gather_data(negative_data, positive_data, split=0.1, testing=False):
 
 
     data_min_length = min([negative_data.shape[0], positive_data.shape[0]])
-
     negative_data = negative_data[:data_min_length]
     positive_data = positive_data[:data_min_length]
 
@@ -33,11 +33,12 @@ def gather_data(negative_data, positive_data, split=0.1, testing=False):
 
     joke_stats = []
     present_gathered = 0
-    print(str(0) + '% Data processed')
+    # print(str(0) + '% Data processed')
+    print('Processing Data')
     for i in range(len(data)):
         if (i*100/len(data))-present_gathered >= 1:
             present_gathered = int(i*100/len(data))
-            print(str(int(i*100/len(data))) + '% Data processed')
+            # print(str(int(i*100/len(data))) + '% Data processed')
         stats = get_stats(data.iloc[i, 0])
         joke_stats.append((stats[0], data.iloc[i, 1], data.iloc[i, 0], stats[1]))
     split = len(joke_stats) - int(split*len(joke_stats))

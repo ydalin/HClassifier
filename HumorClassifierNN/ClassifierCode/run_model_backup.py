@@ -15,7 +15,7 @@ def run_model(directly=False):
     2. Splits data into training and test data
     3. Compiles and fits model from get_model(), saves it to "results" folder
     4. Runs model on test data
-    5. Outputs graph to results folder
+    5_bins. Outputs graph to results folder
     6. Saves result data to "results/final_data.pkl"
     """
 

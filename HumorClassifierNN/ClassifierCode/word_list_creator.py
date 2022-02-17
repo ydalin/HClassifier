@@ -67,7 +67,7 @@ def get_stats(joke):
     similarities = get_similarities(parsed_joke)
     stats = []
     for similarity in similarities:
-        hist = np.nan_to_num(np.histogram(similarity, bins=3, range=(0, 1), density=True)[0]).tolist()
+        hist = np.nan_to_num(np.histogram(similarity, bins=7, range=(0, 1), density=True)[0]).tolist()
         stats.append(hist)
     return stats, joke
 
