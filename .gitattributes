@@ -1,1 +1,1 @@
-*.pb linguist-ignore=True
+*.pb linguist-language=python
