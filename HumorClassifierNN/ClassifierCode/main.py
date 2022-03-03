@@ -9,7 +9,7 @@ def main():
     """
     Runs model, outputs data
     """
-    prompt = "How to run? Input 1 or 2 or 3:" + \
+    prompt = "How to run? Input 1 or 2 or 3 or 4:" + \
              "\n1 Directly (very slow)" + \
              "\n2 From saved 'stats.pkl' file (not as slow)" + \
              "\n3 run cross-training full experiment (very very slow)" + \
