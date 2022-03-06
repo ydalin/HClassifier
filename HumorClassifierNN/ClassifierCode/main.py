@@ -17,7 +17,7 @@ def main():
     action = input(prompt)
 
     if action not in ['1', '2', '3', '4']:
-        raise Exception("Please input 1 or 2 or 3")
+        raise Exception("Please input 1 or 2 or 3 or 4")
 
     if action == '1':
         print("Running Directly")
