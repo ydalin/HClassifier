@@ -11,5 +11,3 @@ def get_model(data):
     model.add(tf.keras.layers.Dense(9, activation='relu'))
     model.add(tf.keras.layers.Dense(1, activation='sigmoid'))
     return model
-# model = get_model(np.zeros((200, 3, 3)))
-# model.summary()
